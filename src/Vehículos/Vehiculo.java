@@ -13,15 +13,15 @@ public class Vehiculo {
     private String marca;
     private String modelo;
     private String fechafab;
-    private int numchasis;
-    private int nummotor;
+    private String numchasis;
+    private String nummotor;
     private String propietario;
     private int cilindraje;
     private double precsug;
     private String fing;
     private String fvent;
 
-    public Vehiculo(String marca, String modelo, String fechafab, int numchasis, int nummotor, String propietario, int cilindraje, double precsug, String fing, String fvent) {
+    public Vehiculo(String marca, String modelo, String fechafab, String numchasis, String nummotor, String propietario, int cilindraje, double precsug, String fing, String fvent) {
         this.marca = marca;
         this.modelo = modelo;
         this.fechafab = fechafab;
@@ -58,19 +58,19 @@ public class Vehiculo {
         this.fechafab = fechafab;
     }
 
-    public int getNumchasis() {
+    public String getNumchasis() {
         return numchasis;
     }
 
-    public void setNumchasis(int numchasis) {
+    public void setNumchasis(String numchasis) {
         this.numchasis = numchasis;
     }
 
-    public int getNummotor() {
+    public String getNummotor() {
         return nummotor;
     }
 
-    public void setNummotor(int nummotor) {
+    public void setNummotor(String nummotor) {
         this.nummotor = nummotor;
     }
 

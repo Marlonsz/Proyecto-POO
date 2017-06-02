@@ -123,5 +123,11 @@ public class Cliente {
     public void setVad(String vad) {
         this.vad = vad;
     }
+
+    @Override
+    public String toString() {
+        //TODO: Terminar este método.
+        return "Terminar!";
+    }
     
 }
