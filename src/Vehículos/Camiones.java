@@ -5,6 +5,8 @@
  */
 package Vehículos;
 
+import java.util.Date;
+
 /**
  *
  * @author Marlon
@@ -13,11 +15,11 @@ public class Camiones extends Vehiculo{
     /*Poner 2 atributos unicos de una camioneta*/
     private int numruedas;
 
-    public Camiones(String marca, String modelo, String fechafab, String numchasis, String nummotor, String propietario, int cilindraje, double precsug, String fing, String fvent) {
+    public Camiones(String marca, String modelo, Date fechafab, String numchasis, String nummotor, String propietario, double cilindraje, double precsug, Date fing, Date fvent) {
         super(marca, modelo, fechafab, numchasis, nummotor, propietario, cilindraje, precsug, fing, fvent);
     }
 
-    public Camiones(int numruedas, String marca, String modelo, String fechafab, String numchasis, String nummotor, String propietario, int cilindraje, double precsug, String fing, String fvent) {
+    public Camiones(int numruedas, String marca, String modelo, Date fechafab, String numchasis, String nummotor, String propietario, double cilindraje, double precsug, Date fing, Date fvent) {
         super(marca, modelo, fechafab, numchasis, nummotor, propietario, cilindraje, precsug, fing, fvent);
         this.numruedas = numruedas;
     }

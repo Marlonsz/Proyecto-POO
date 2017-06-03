@@ -5,6 +5,8 @@
  */
 package Vehículos;
 
+import java.util.Date;
+
 /**
  *
  * @author Marlon
@@ -12,16 +14,16 @@ package Vehículos;
 public class Vehiculo {
     private String marca;
     private String modelo;
-    private String fechafab;
+    private Date fechafab;
     private String numchasis;
     private String nummotor;
     private String propietario;
-    private int cilindraje;
+    private double cilindraje;
     private double precsug;
-    private String fing;
-    private String fvent;
+    private Date fing;
+    private Date fvent;
 
-    public Vehiculo(String marca, String modelo, String fechafab, String numchasis, String nummotor, String propietario, int cilindraje, double precsug, String fing, String fvent) {
+    public Vehiculo(String marca, String modelo, Date fechafab, String numchasis, String nummotor, String propietario, double cilindraje, double precsug, Date fing, Date fvent) {
         this.marca = marca;
         this.modelo = modelo;
         this.fechafab = fechafab;
@@ -50,11 +52,11 @@ public class Vehiculo {
         this.modelo = modelo;
     }
 
-    public String getFechafab() {
+    public Date getFechafab() {
         return fechafab;
     }
 
-    public void setFechafab(String fechafab) {
+    public void setFechafab(Date fechafab) {
         this.fechafab = fechafab;
     }
 
@@ -82,11 +84,11 @@ public class Vehiculo {
         this.propietario = propietario;
     }
 
-    public int getCilindraje() {
+    public double getCilindraje() {
         return cilindraje;
     }
 
-    public void setCilindraje(int cilindraje) {
+    public void setCilindraje(double cilindraje) {
         this.cilindraje = cilindraje;
     }
 
@@ -98,19 +100,19 @@ public class Vehiculo {
         this.precsug = precsug;
     }
 
-    public String getFing() {
+    public Date getFing() {
         return fing;
     }
 
-    public void setFing(String fing) {
+    public void setFing(Date fing) {
         this.fing = fing;
     }
 
-    public String getFvent() {
+    public Date getFvent() {
         return fvent;
     }
 
-    public void setFvent(String fvent) {
+    public void setFvent(Date fvent) {
         this.fvent = fvent;
     }
     
