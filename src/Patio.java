@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * Created by piero512 on 02/06/17.
  */
 public class Patio {
-    private ArrayList<Vehiculo> patio;
+    private ArrayList<Vehiculo> patio = new ArrayList<>();
     private int capacidad;
 
     public Patio(int capacidad) {
