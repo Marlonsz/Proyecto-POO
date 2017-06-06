@@ -1,6 +1,8 @@
 import Entrada.validar;
 import Vehículos.Automovil;
+import Vehículos.Vehiculo;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -14,10 +16,34 @@ public class ProyectoPoo {
         Patio p_automotor = new Patio(15);
         int respuesta = imprimirMenuPrincipal();
         System.out.println(respuesta);
+        ArrayList<String> tipos = new ArrayList<>();
+        tipos.add("automovil");
+        tipos.add("camiones");
+        tipos.add("camionetas");
+        tipos.add("otros");
         switch (respuesta) {
             case 1:
                 imprimirMenuIngresoVehicular();
-
+                String tipo = ingresarTipoVehiculo(tipos);
+                switch (tipo) {
+                    case "automovil":
+                        Vehiculo vh = imprimirMenuIngresoAutomovil();
+                        // TODO: Falta receptar el boolean para determinar si el ingreso del vh es exitoso.
+                        p_automotor.ingresarVehículo(vh);
+                        break;
+                    case "camiones":
+                        // Terminar el menu de camiones
+                        break;
+                    case "camionetas":
+                        // Terminar el menu de camionetas
+                        break;
+                    case "otros":
+                        // Terminar el menu para otros vehiculos
+                        break;
+                    default:
+                        // Asi vemos si las validaciones sirven.
+                        throw new IllegalArgumentException();
+                }
                 break;
             case 2:
                 // TODO: Añadir el ingreso de clientes
@@ -91,10 +117,22 @@ public class ProyectoPoo {
         return new Automovil(marca, modelo, f_fabricacion, n_chasis, n_motor, propietario, cilindraje, precio_sugerido, fecha_ingreso, fecha_venta);
     }
 
-    public static String ingresarTipoVehiculo() {
+    public static String ingresarTipoVehiculo(ArrayList<String> tipos) {
         // TODO: Terminar este metodo.
+        Scanner sc = new Scanner(System.in);
         System.out.println("Ingrese el tipo de vehículo de los siguientes tipos:");
         System.out.println("Automovil,Motos, Camionetas, Camiones u Otros");
-        return null;
+        String cadena;
+        boolean terminar;
+        do {
+            cadena = sc.nextLine();
+            if (tipos.contains(cadena.toLowerCase()))
+                terminar = true;
+            else {
+                System.out.println("Ingrese un tipo de vehiculo!");
+                terminar = false;
+            }
+        } while (!terminar);
+        return cadena;
     }
 }
