@@ -7,7 +7,7 @@ import java.util.ArrayList;
  */
 public class Patio {
     private ArrayList<Vehiculo> patio = new ArrayList<>();
-    private int capacidad;
+    private final int capacidad;
 
     public Patio(int capacidad) {
         this.capacidad = capacidad;
