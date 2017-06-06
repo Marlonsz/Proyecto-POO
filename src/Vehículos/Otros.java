@@ -12,7 +12,8 @@ import java.util.Date;
  * @author Marlon
  */
 public class Otros extends Vehiculo{
-    /*Poner 3 atributos unicos de una camioneta*/
+    /*Poner 3 atributos unicos de otros tipos de vehiculos*/
+    
     public Otros(String marca, String modelo, Date fechafab, String numchasis, String nummotor, String propietario, double cilindraje, double precsug, Date fing, Date fvent) {
         super(marca, modelo, fechafab, numchasis, nummotor, propietario, cilindraje, precsug, fing, fvent);
     }
