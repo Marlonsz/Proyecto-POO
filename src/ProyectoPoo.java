@@ -17,6 +17,7 @@ public class ProyectoPoo {
         switch (respuesta) {
             case 1:
                 imprimirMenuIngresoVehicular();
+
                 break;
             case 2:
                 // TODO: Añadir el ingreso de clientes
@@ -47,7 +48,7 @@ public class ProyectoPoo {
                 "3) Ingreso de vendedores%n" +
                 "4) Registrar carro saliente%n" +
                 "5) Salir%n");
-        return validar.capturarNumeroRango(1, 5);
+        return validar.capturarNumeroRango(0, 5);
     }
 
     public static void imprimirMenuIngresoVehicular() {
@@ -60,7 +61,7 @@ public class ProyectoPoo {
                 "- Fecha de fabricación%n" +
                 "- Número de chasis%n" +
                 "- Número de motor%n" +
-                "- Propietario (presione enter para dejar sin propietario)$n" +
+                "- Propietario (presione enter para dejar sin propietario)%n" +
                 "- Cilindraje%n" +
                 "- Precio Sugerido%n" +
                 "- Fecha de ingreso%n" +
@@ -88,5 +89,12 @@ public class ProyectoPoo {
         Date fecha_ingreso = validar.validarFecha();
         Date fecha_venta = validar.validarFecha();
         return new Automovil(marca, modelo, f_fabricacion, n_chasis, n_motor, propietario, cilindraje, precio_sugerido, fecha_ingreso, fecha_venta);
+    }
+
+    public static String ingresarTipoVehiculo() {
+        // TODO: Terminar este metodo.
+        System.out.println("Ingrese el tipo de vehículo de los siguientes tipos:");
+        System.out.println("Automovil,Motos, Camionetas, Camiones u Otros");
+        return null;
     }
 }

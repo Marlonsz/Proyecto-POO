@@ -2,6 +2,7 @@ package Entrada;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -20,7 +21,7 @@ public class validar {
                 input.next(); // this is important!
             }
             numero = input.nextInt();
-            if (!(numero >= n_inicio && numero <= n_final))
+            if (!(numero > n_inicio && numero <= n_final))
                 System.out.println("El número no está entre las opciones!");
         } while (!(numero > n_inicio && numero <= n_final));
         return numero;
@@ -70,5 +71,18 @@ public class validar {
             }
         } while (true);
         return f_retornar;
+    }
+
+    public static String validarTipoVehiculo(ArrayList<String> tipos) {
+        // TODO: Mejorar esta nota.
+        Scanner sc = new Scanner(System.in);
+        do {
+            String tipo = sc.nextLine();
+            if (tipos.contains(tipo)) {
+                return tipo;
+            } else {
+                continue;
+            }
+        } while (true);
     }
 }
