@@ -5,6 +5,10 @@
  */
 package Cliente_Vendedor;
 
+import Vehículos.Vehiculo;
+
+import java.util.ArrayList;
+
 /**
  *
  * @author Marlon
@@ -20,9 +24,9 @@ public class Cliente {
     private String sector;
     private String numviv;
     private String fechaIng;
-    private String vad;
+    private ArrayList<Vehiculo> vh_adq;
 
-    public Cliente(String nombre, String apellidos, String numid, String tel, String pais, String ciudad, String calle, String sector, String numviv, String fechaIng, String vad) {
+    public Cliente(String nombre, String apellidos, String numid, String tel, String pais, String ciudad, String calle, String sector, String numviv, String fechaIng, ArrayList<Vehiculo> vh_adq) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.numid = numid;
@@ -33,7 +37,7 @@ public class Cliente {
         this.sector = sector;
         this.numviv = numviv;
         this.fechaIng = fechaIng;
-        this.vad = vad;
+        this.vh_adq = vh_adq;
     }
 
     public String getNombre() {
@@ -116,12 +120,12 @@ public class Cliente {
         this.fechaIng = fechaIng;
     }
 
-    public String getVad() {
-        return vad;
+    public ArrayList<Vehiculo> getVh_adq() {
+        return vh_adq;
     }
 
-    public void setVad(String vad) {
-        this.vad = vad;
+    public void setVh_adq(ArrayList<Vehiculo> vh_adq) {
+        this.vh_adq = vh_adq;
     }
 
     @Override
