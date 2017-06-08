@@ -13,6 +13,7 @@ import java.util.Date;
  */
 public class Motos extends Vehiculo {
     /*Poner 3 atributos unicos de una camioneta*/
+    
     public Motos(String marca, String modelo, Date fechafab, String numchasis, String nummotor, String propietario, double cilindraje, double precsug, Date fing, Date fvent) {
         super(marca, modelo, fechafab, numchasis, nummotor, propietario, cilindraje, precsug, fing, fvent);
     }

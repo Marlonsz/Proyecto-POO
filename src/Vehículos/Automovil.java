@@ -12,15 +12,17 @@ import java.util.Date;
  * @author Marlon
  */
 public class Automovil extends Vehiculo {
-    // TODO:Poner 3 atributos unicos de una camioneta
     private String tipo;//Deportivo, clasico,etc
     private int numPuertas;
     private boolean camParqueo;//cámara de visión trasera para parqueo
-    private int numAsientos;
-    
-    public Automovil(String marca, String modelo, Date fechafab, String numchasis, String nummotor, String propietario, double cilindraje, double precsug, Date fing, Date fvent) {
+    public Automovil(String tipo, int numPuertas, boolean camParqueo, String marca, String modelo, Date fechafab, String numchasis, String nummotor, String propietario, double cilindraje, double precsug, Date fing, Date fvent) {
         super(marca, modelo, fechafab, numchasis, nummotor, propietario, cilindraje, precsug, fing, fvent);
+        this.tipo = tipo;
+        this.numPuertas = numPuertas;
+        this.camParqueo = camParqueo;
     }
+  
+    
 
     public String getTipo() {
         return tipo;
@@ -45,15 +47,5 @@ public class Automovil extends Vehiculo {
     public void setCamParqueo(boolean camParqueo) {
         this.camParqueo = camParqueo;
     }
-
-    public int getNumAsientos() {
-        return numAsientos;
-    }
-
-    public void setNumAsientos(int numAsientos) {
-        this.numAsientos = numAsientos;
-    }
-    
-    
-    
+ 
 }
