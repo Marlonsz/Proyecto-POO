@@ -42,7 +42,9 @@ public class UI {
 
 
     public static String ingresarTipoVehiculo(ArrayList<String> tipos) {
-        // TODO: Terminar este metodo.
+        /*
+        
+         */
         Scanner sc = new Scanner(System.in);
         System.out.println("Ingrese el tipo de vehículo de los siguientes tipos:");
         System.out.println("Automovil,Motos, Camionetas, Camiones u Otros");
@@ -57,7 +59,7 @@ public class UI {
                 terminar = false;
             }
         } while (!terminar);
-        return cadena;
+        return cadena.toLowerCase();
     }
 
     public static Camiones imprimirMenuIngresoCamiones(ArrayList<Object> datos) {
@@ -106,6 +108,11 @@ public class UI {
         datos.add(cilindraje);
         double precio_sugerido = validar.ingresarValorNumerico(0, "Ingrese el valor sugerido: ");
         datos.add(precio_sugerido);
+        System.out.println("Ingrese fecha de ingreso (vacio si hoy): ");
+        Date fecha_ingreso = validar.validarFecha();
+        datos.add(fecha_ingreso);
+        Date fecha_venta = null;
+        datos.add(fecha_venta);
         return datos;
     }
 
@@ -114,7 +121,7 @@ public class UI {
         System.out.print("Ingrese tipo de automovil: ");
         String tipo = scanner.nextLine();
         System.out.print("Ingrese n\u00famero de puertas: ");
-        int numPuertas = scanner.nextInt();
+        int numPuertas = (int) validar.ingresarValorNumerico(0, "Ingrese numero de puertas");
         System.out.print("Ingrese 1 si tiene c\u00e1mara de parqueo, o 0 en caso contrario: ");
         int camP;
         camP = validar.capturarNumeroRango(0, 1);
@@ -124,16 +131,7 @@ public class UI {
         } else {
             camParqueo = false;
         }
-        Date fecha_ingreso = validar.validarFecha();
-        Date fecha_venta = validar.validarFecha();
         return new Automovil(tipo, numPuertas, camParqueo, (String) datos.get(0), (String) datos.get(1), (Date) datos.get(2),
        (String) datos.get(3),(String) datos.get(4),(String) datos.get(5),(double) datos.get(6),(double) datos.get(7), (Date)datos.get(8),(Date) datos.get(9));
-    }
-
-    public static String ingresarTipoVehiculo() {
-        // TODO: Terminar este metodo.
-        System.out.println("Ingrese el tipo de veh\u00edculo de los siguientes tipos:");
-        System.out.println("Automovil,Motos, Camionetas, Camiones u Otros");
-        return null;
     }
 }
