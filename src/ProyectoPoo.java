@@ -1,5 +1,7 @@
 import Entrada.validar;
 import Vehículos.Automovil;
+import Vehículos.Camiones;
+import java.util.ArrayList;
 
 import java.util.Date;
 import java.util.Scanner;
@@ -69,32 +71,77 @@ public class ProyectoPoo {
 
     }
 
-    public static Automovil imprimirMenuIngresoAutomovil() {
+    public static Automovil imprimirMenuIngresoAutomovil(ArrayList<Object> datos_vh) {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Ingrese la marca del carro: ");
-        String marca = scanner.nextLine();
-        System.out.print("Ingrese el modelo del carro: ");
-        String modelo = scanner.nextLine();
-        System.out.print("Ingrese la fecha de fabricación (en dd-mm-yy): ");
-        Date f_fabricacion = validar.validarFecha();
-        System.out.print("Ingrese el número de chasis: ");
-        String n_chasis = scanner.nextLine();
-        System.out.print("Ingrese el número del motor: ");
-        String n_motor = scanner.nextLine();
-        System.out.print("Ingrese el propietario: ");
-        String propietario = scanner.nextLine();
-        double cilindraje = validar.ingresarValorNumerico(0, "Ingrese el cilindraje (en cm3): ");
-        double precio_sugerido = validar.ingresarValorNumerico(0, "Ingrese el valor sugerido del automóvil");
-        System.out.print("Ingrese la fecha de ingreso (en dd-mm-yy): ");
+        System.out.print("Ingrese tipo de automovil: ");
+        String tipo=scanner.nextLine();
+        System.out.print("Ingrese número de puertas: ");
+        int numPuertas=scanner.nextInt();
+        System.out.print("Ingrese 1 si tiene cámara de parqueo, o 0 en caso contrario: ");
+        int camP =scanner.nextInt();
+        camP=validar.capturarNumeroRango(0, 1);
+        boolean camParqueo;
+        if (camP ==1)
+            camParqueo=true;
+        else
+            camParqueo=false;
         Date fecha_ingreso = validar.validarFecha();
         Date fecha_venta = validar.validarFecha();
-        return new Automovil(marca, modelo, f_fabricacion, n_chasis, n_motor, propietario, cilindraje, precio_sugerido, fecha_ingreso, fecha_venta);
+        return new Automovil(tipo,numPuertas,camParqueo,marca, modelo, f_fabricacion, n_chasis, n_motor, propietario, cilindraje, precio_sugerido, fecha_ingreso, fecha_venta);
     }
-
+ public static Camiones imprimirMenuIngresoCamiones() {
+     
+        Scanner scanner = new Scanner(System.in);
+        ingresoDatos();
+        System.out.print("Ingrese número de ruedas: ");
+        String numruedas=scanner.next();
+        System.out.print("Ingrese la capacidad de carga: ");
+        double capCarga=scanner.nextInt();
+        System.out.print("Ingrese 1 si tiene rastreo satelital, o 0 en caso contrario: ");
+        int rastreo =scanner.nextInt();
+        validar.capturarNumeroRango(0, 1);
+        boolean rasSat;
+        if ( rastreo==1)
+            rasSat=true;
+        else
+            rasSat=false;
+        Date fecha_ingreso = validar.validarFecha();
+        Date fecha_venta = validar.validarFecha();
+        return new Camiones( numruedas,capCarga,rasSat,marca, modelo, f_fabricacion, n_chasis, n_motor, propietario, cilindraje, precio_sugerido, fecha_ingreso, fecha_venta);
+    }
     public static String ingresarTipoVehiculo() {
         // TODO: Terminar este metodo.
         System.out.println("Ingrese el tipo de vehículo de los siguientes tipos:");
         System.out.println("Automovil,Motos, Camionetas, Camiones u Otros");
         return null;
+    }
+    public static ArrayList<Object> ingresoDatos(){
+        ArrayList<Object> datos = new ArrayList<Object>();
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Ingrese la marca: ");
+        String marca = scanner.nextLine();
+        datos.add(marca);
+        System.out.print("Ingrese el modelo : ");
+        String modelo = scanner.nextLine();
+        datos.add(modelo);
+        System.out.print("Ingrese la fecha de fabricación (en dd-mm-yy): ");
+        Date f_fabricacion = validar.validarFecha();
+        datos.add(f_fabricacion);
+        System.out.print("Ingrese el número de chasis: ");
+        String n_chasis = scanner.nextLine();
+        datos.add(n_chasis);
+        System.out.print("Ingrese el número del motor: ");
+        String n_motor = scanner.nextLine();
+        datos.add(n_motor);
+        System.out.print("Ingrese el propietario: ");
+        String propietario = scanner.nextLine();
+        datos.add(propietario);
+        double cilindraje = validar.ingresarValorNumerico(0, "Ingrese el cilindraje (en cm3): ");
+        datos.add(cilindraje);
+        double precio_sugerido = validar.ingresarValorNumerico(0, "Ingrese el valor sugerido: ");
+        datos.add(precio_sugerido);
+        return datos;
+        
+        
     }
 }
