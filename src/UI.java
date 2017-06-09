@@ -1,12 +1,7 @@
 import Cliente_Vendedor.Cliente;
 import Cliente_Vendedor.Vendedor;
 import Entrada.validar;
-import Vehículos.Automovil;
-import Vehículos.Camiones;
-import Vehículos.Camionetas;
-import Vehículos.Motos;
-import Vehículos.Otros;
-import Vehículos.Vehiculo;
+import Vehículos.*;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -153,8 +148,14 @@ public class UI {
     
    
     public static Motos imprimirMenuIngresoMotos(ArrayList<Object> datos) {
-        //TERMINAR MENU MOTOS -FALTA LOS 3 ATRIBUTOS
-        return new Motos( (String) datos.get(0), (String) datos.get(1), (Date) datos.get(2),
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Ingrese el tipo de moto");
+        String tipo = sc.nextLine();
+        System.out.println("Ingrese el sistema de arranque de la moto");
+        String sisArr = sc.nextLine();
+        System.out.println("Ingrese el tipo de transmisión de la moto");
+        String transmision = sc.nextLine();
+        return new Motos(tipo, sisArr, transmision, (String) datos.get(0), (String) datos.get(1), (Date) datos.get(2),
        (String) datos.get(3),(String) datos.get(4),(String) datos.get(5),(double) datos.get(6),
                 (double) datos.get(7), (Date)datos.get(8),(Date) datos.get(9));
     }
@@ -165,12 +166,8 @@ public class UI {
        (String) datos.get(3),(String) datos.get(4),(String) datos.get(5),(double) datos.get(6),
                 (double) datos.get(7), (Date)datos.get(8),(Date) datos.get(9));
     }
-    public static String ingresarTipoVehiculo() {
-        // DONDE SE LO USA?
-        System.out.println("Ingrese el tipo de veh\u00edculo de los siguientes tipos:");
-        System.out.println("Automovil,Motos, Camionetas, Camiones u Otros");
-        return null;
-    }
+
+
     public static void ingresarCliente() {
         //MEJORAR--AGREGAR AL CLIENTE LOS VEHICULOS QUE HA ADQUIRIDO
         ArrayList<Vehiculo> vehiculos=new ArrayList<Vehiculo>();
