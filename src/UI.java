@@ -47,7 +47,9 @@ public class UI {
     }
 
     public static String ingresarTipoVehiculo(ArrayList<String> tipos) {
-        // TODO: Terminar este metodo.
+        /*
+        
+         */
         Scanner sc = new Scanner(System.in);
         System.out.println("Ingrese el tipo de vehículo de los siguientes tipos:");
         System.out.println("Automovil,Motos, Camionetas, Camiones u Otros");
@@ -63,6 +65,25 @@ public class UI {
             }
         } while (!terminar);
         return cadena.toLowerCase();
+<<<<<<< HEAD
+=======
+    }
+
+    public static Camiones imprimirMenuIngresoCamiones(ArrayList<Object> datos) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Ingrese n\u00famero de ruedas: ");
+        int numruedas = (int) validar.ingresarValorNumerico(0, "Ingrese el numero de ruedas") ;
+        System.out.print("Ingrese la capacidad de carga: ");
+        double capCarga = scanner.nextInt();
+        System.out.print("Ingrese 1 si tiene rastreo satelital, o 0 en caso contrario: ");
+        int rastreo = scanner.nextInt();
+        validar.capturarNumeroRango(0, 1);
+        boolean rasSat;
+        if (rastreo == 1) {
+            rasSat = true;
+        } else {
+            rasSat = false;
+>>>>>>> ffe40eb311cab048a63c3be23c4eb552f5ea94f7
         }
     public static ArrayList<Object> ingresoDatos() {
         ArrayList<Object> datos = new ArrayList<Object>();
@@ -89,10 +110,17 @@ public class UI {
         datos.add(cilindraje);
         double precio_sugerido = validar.ingresarValorNumerico(0, "Ingrese el valor sugerido: ");
         datos.add(precio_sugerido);
+<<<<<<< HEAD
         //VALIDAR QUE LA FECHA DE INGRESO SEA ANTES QUE LA DE VENTA
         Date fecha_ingreso = validar.validarFecha("Ingrese fecha de ingreso: ");
         datos.add(fecha_ingreso);
         Date fecha_venta = validar.validarFecha("Ingrese fecha de venta: ");
+=======
+        System.out.println("Ingrese fecha de ingreso (vacio si hoy): ");
+        Date fecha_ingreso = validar.validarFecha();
+        datos.add(fecha_ingreso);
+        Date fecha_venta = null;
+>>>>>>> ffe40eb311cab048a63c3be23c4eb552f5ea94f7
         datos.add(fecha_venta);
         return datos;
     }
@@ -101,7 +129,7 @@ public class UI {
         System.out.print("Ingrese tipo de automovil: ");
         String tipo = scanner.nextLine();
         System.out.print("Ingrese n\u00famero de puertas: ");
-        int numPuertas = scanner.nextInt();
+        int numPuertas = (int) validar.ingresarValorNumerico(0, "Ingrese numero de puertas");
         System.out.print("Ingrese 1 si tiene c\u00e1mara de parqueo, o 0 en caso contrario: ");
         int camP;
         camP = validar.capturarNumeroRango(0, 1);
@@ -111,6 +139,7 @@ public class UI {
         } else {
             camParqueo = false;
         }
+<<<<<<< HEAD
         
         return new Automovil(tipo, numPuertas, camParqueo, (String) datos.get(0), (String) datos.get(1), (Date) datos.get(2),
        (String) datos.get(3),(String) datos.get(4),(String) datos.get(5),(double) datos.get(6),(double) datos.get(7), (Date)datos.get(8),(Date) datos.get(9));
@@ -213,4 +242,9 @@ public class UI {
         int totcomision=scanner.nextInt();
         Vendedor perfil= new Vendedor(nombre,apellido,iD,tel,pais,totventas,totcomision);
     }
+=======
+        return new Automovil(tipo, numPuertas, camParqueo, (String) datos.get(0), (String) datos.get(1), (Date) datos.get(2),
+       (String) datos.get(3),(String) datos.get(4),(String) datos.get(5),(double) datos.get(6),(double) datos.get(7), (Date)datos.get(8),(Date) datos.get(9));
+    }
+>>>>>>> ffe40eb311cab048a63c3be23c4eb552f5ea94f7
 }

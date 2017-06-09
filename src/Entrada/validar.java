@@ -62,21 +62,28 @@ public class validar {
         Date f_retornar = new Date();
         Scanner entrada = new Scanner(System.in);
         SimpleDateFormat df = new SimpleDateFormat("dd-mm-yy");
+<<<<<<< HEAD
         System.out.print(mensaje);
         if (entrada.nextLine().equals(""))
+=======
+        String input = entrada.nextLine();
+        if (input.equals("")) {
+>>>>>>> ffe40eb311cab048a63c3be23c4eb552f5ea94f7
             return f_retornar;
-
-        do {
-            try {
-                f_retornar = df.parse(entrada.nextLine());
-                break;
-            } catch (ParseException e) {
-                System.out.println("Fecha no válida!");
-            }
-        } while (true);
-        return f_retornar;
+        } else {
+            do {
+                try {
+                    f_retornar = df.parse(input);
+                    break;
+                } catch (ParseException e) {
+                    System.out.println("Fecha no válida!");
+                    System.out.println("Ingrese una fecha valida");
+                    input = entrada.nextLine();
+                }
+            } while (true);
+            return f_retornar;
+        }
     }
-
     public static String validarTipoVehiculo(ArrayList<String> tipos) {
         // TODO: Mejorar esta nota.
         Scanner sc = new Scanner(System.in);
