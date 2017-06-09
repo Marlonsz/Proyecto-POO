@@ -13,6 +13,7 @@ public class ProyectoPoo {
     public static void main(String[] args) {
         //TODO: Terminar el main.
         Patio p_automotor = new Patio(15);
+
         System.out.println("----------------------------------------------------");
         int respuesta = UI.imprimirMenuPrincipal();
         System.out.println(respuesta);
@@ -21,6 +22,7 @@ public class ProyectoPoo {
         tipos.add("camiones");
         tipos.add("camionetas");
         tipos.add("otros");
+
         while (respuesta!=8){
             switch (respuesta) {
                 case 1:
@@ -39,10 +41,8 @@ public class ProyectoPoo {
                             break;
 
                         case "motos":
-                            // Terminar el menu de motos, falta 3 atributos
                             ArrayList<Object> mo = UI.ingresoDatos();
                             Motos m = UI.imprimirMenuIngresoMotos(mo);
-
                             p_automotor.ingresarVehículo(m);
                             break;
                         case "camionetas":
@@ -94,6 +94,7 @@ public class ProyectoPoo {
             }
             System.out.println("-----------------------------------------------------------------------");
             respuesta = UI.imprimirMenuPrincipal();
+
         }
     }
 }
