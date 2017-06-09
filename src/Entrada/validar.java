@@ -62,13 +62,9 @@ public class validar {
         Date f_retornar = new Date();
         Scanner entrada = new Scanner(System.in);
         SimpleDateFormat df = new SimpleDateFormat("dd-mm-yy");
-<<<<<<< HEAD
         System.out.print(mensaje);
-        if (entrada.nextLine().equals(""))
-=======
         String input = entrada.nextLine();
         if (input.equals("")) {
->>>>>>> ffe40eb311cab048a63c3be23c4eb552f5ea94f7
             return f_retornar;
         } else {
             do {
