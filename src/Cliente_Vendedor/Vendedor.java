@@ -15,10 +15,10 @@ public class Vendedor {
     private String numid;
     private String tel;
     private String tipo;
-    private String totventas;
-    private String totcomision;
+    private int totventas;
+    private int totcomision;
 
-    public Vendedor(String nombre, String apellidos, String numid, String tel, String tipo, String totventas, String totcomision) {
+    public Vendedor(String nombre, String apellidos, String numid, String tel, String tipo, int totventas, int totcomision) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.numid = numid;
@@ -68,19 +68,19 @@ public class Vendedor {
         this.tipo = tipo;
     }
 
-    public String getTotventas() {
+    public int getTotventas() {
         return totventas;
     }
 
-    public void setTotventas(String totventas) {
+    public void setTotventas(int totventas) {
         this.totventas = totventas;
     }
 
-    public String getTotcomision() {
+    public int getTotcomision() {
         return totcomision;
     }
 
-    public void setTotcomision(String totcomision) {
+    public void setTotcomision(int totcomision) {
         this.totcomision = totcomision;
     }
 

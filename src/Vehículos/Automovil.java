@@ -22,8 +22,7 @@ public class Automovil extends Vehiculo {
         this.camParqueo = camParqueo;
     }
   
-    
-
+   
     public String getTipo() {
         return tipo;
     }

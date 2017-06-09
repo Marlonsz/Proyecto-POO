@@ -1,20 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author Marlon
- */
-
-
-/**
- * Esta clase permite cambiar el color de texto y fondo de una cadena de texto,
- * mediante el uso de constante que permiten realizar aquello.
- * @author Luis Moya, Leiber Rivas, Marlon Segarra.
- */
 
 public class Color {
     //Constantes que permiten cambiar el color de texto y fondo de una cadena de texto.

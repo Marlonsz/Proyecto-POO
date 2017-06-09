@@ -53,12 +53,16 @@ public class validar {
             valor = entrada.nextInt();
         } while (!(valor > n_inicio));
         return valor;
+        //VALOR QUE SE RETORNA ES INT O DOUBLE?
     }
 
-    public static Date validarFecha() {
+    public static Date validarFecha(String mensaje) {
+        /*CORREGIR a pesar de que se ponga fecha correcta sale fecha no válida
+        hasta la segunda vez que se la ingresa*/
         Date f_retornar = new Date();
         Scanner entrada = new Scanner(System.in);
         SimpleDateFormat df = new SimpleDateFormat("dd-mm-yy");
+        System.out.print(mensaje);
         if (entrada.nextLine().equals(""))
             return f_retornar;
 
