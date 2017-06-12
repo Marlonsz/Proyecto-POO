@@ -166,9 +166,26 @@ public class UI {
        (String) datos.get(3),(String) datos.get(4),(String) datos.get(5),(double) datos.get(6),
                 (double) datos.get(7), (Date)datos.get(8),(Date) datos.get(9));
     }
+/*Ordena el arreglo de vehiculos por fecha de ingreso*/
+    public static void compare( ArrayList<Vehiculo> vehiculos ) {
+        Vehiculo aux;
+		for(int i=0;i<vehiculos.size();i++){
+                    for(int j=1;j<vehiculos.size()-1;j++){
+                        if (vehiculos.get(j).getFing().before(vehiculos.get(i).getFing())==true ){
+                            aux=vehiculos.get(i);
+                            vehiculos.remove(i);
+                            vehiculos.add(i, vehiculos.get(j));
+                            vehiculos.remove(j);
+                            vehiculos.add(j, aux);
+			
+		}
+                    }
+                }
+		
+		
+	}
 
-
-    public static void ingresarCliente() {
+    public static void ingresarCliente(ArrayList<Vehiculo> disponibles) {
         //MEJORAR--AGREGAR AL CLIENTE LOS VEHICULOS QUE HA ADQUIRIDO
         ArrayList<Vehiculo> vehiculos=new ArrayList<Vehiculo>();
         Scanner scanner = new Scanner(System.in);
@@ -192,8 +209,22 @@ public class UI {
         String numVivi=scanner.nextLine();
         System.out.print("Ingrese fecha de ingreso: ");
         String fecha_ingreso=scanner.nextLine();
-        System.out.print("Ingrese vehiculo adquirido: ");
+        /*Pregunta el numero de vehiculos que ha comprado*/
+        System.out.print("Ingrese el numero de vehiculos adquiridos ");
+        String nveh = scanner.nextLine();
+        int num=validar.ingresarValorNumerico(nveh);
+        /* muestra un listado con la descripcion de cada vehiculo y permite escoger una opcion*/
+        for(int i=0;i<num;i++){
+            System.out.print("Ingrese el numero del "+(i+1)+ "vehiculo adquirido: ");
+            for(int j=0;j<disponibles.size();j++){
+                System.out.println((j+1)+disponibles.get(j).toString());
+            }
+            String op=scanner.nextLine();
+            int op2=validar.ingresarValorNumerico(op);
+            vehiculos.add(disponibles.get(op2-1));
+            
         
+        }
         
         Cliente perfil= new Cliente(nombre,apellido,iD,tel,pais,ciudad,calle,sector,numVivi,fecha_ingreso,vehiculos);
     }

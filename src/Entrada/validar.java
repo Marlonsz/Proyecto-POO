@@ -41,6 +41,21 @@ public class validar {
         return valor;
     }
 
+    /*Valida el ingreso de un valor numérico entre 0 y 15*/
+    public static int ingresarValorNumerico( String mensaje) {
+        int valor;
+        Scanner entrada = new Scanner(System.in);
+        do {
+            System.out.print(mensaje);
+            while (!entrada.hasNextInt()) {
+                System.out.println("No ha ingresado un número!");
+                entrada.next();
+            }
+            valor = entrada.nextInt();
+        } while (!(valor > 0 && valor < 15));
+        return valor;
+    }
+
     public static double ingresarValorNumerico(int n_inicio, String mensaje) {
         double valor;
         Scanner entrada = new Scanner(System.in);

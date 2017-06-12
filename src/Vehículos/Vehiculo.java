@@ -22,6 +22,7 @@ public class Vehiculo {
     private double precsug;
     private Date fing;
     private Date fvent;
+    
 
     public Vehiculo(String marca, String modelo, Date fechafab, String numchasis, String nummotor, String propietario, double cilindraje, double precsug, Date fing, Date fvent) {
         this.marca = marca;

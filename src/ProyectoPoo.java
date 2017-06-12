@@ -3,6 +3,7 @@ import Vehículos.Camiones;
 import Vehículos.Camionetas;
 import Vehículos.Motos;
 
+
 import java.util.ArrayList;
 
 
@@ -10,6 +11,8 @@ import java.util.ArrayList;
  * Created by piero512 on 02/06/17.
  */
 public class ProyectoPoo {
+    
+    
     public static void main(String[] args) {
         //TODO: Terminar el main.
         Patio p_automotor = new Patio(15);
@@ -63,7 +66,7 @@ public class ProyectoPoo {
                     }
                     break;
                 case 2:
-                    UI.ingresarCliente();
+                    UI.ingresarCliente(p_automotor.getPatio());
                     break;
                 case 3:
                     UI.ingresarVendedor();
@@ -72,7 +75,10 @@ public class ProyectoPoo {
                     // TODO: Añadir la salida de autos del patio
                     break;
                 case 5:
-                    /* TODO: Reporte de vehículos actualmente en el patio, 
+                    UI.compare(p_automotor.getPatio());
+                    for(int i=0;i<p_automotor.getPatio().size();i++){
+                        p_automotor.getPatio().get(i).toString();
+                    }/* TODO: Reporte de vehículos actualmente en el patio, 
                     ordenados por fecha de ingreso 
                     */
                     break;
