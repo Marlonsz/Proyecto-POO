@@ -5,59 +5,25 @@
  */
 package Cliente_Vendedor;
 
+import Vehículos.Vehiculo;
+
+import java.util.ArrayList;
+
 /**
  *
  * @author Marlon
  */
-public class Vendedor {
-    private String nombre;
-    private String apellidos;
-    private String numid;
-    private String tel;
+public class Vendedor extends Usuario {
     private String tipo;
     private int totventas;
     private int totcomision;
+    private ArrayList<Vehiculo> vh_vendidos = new ArrayList<>();
 
     public Vendedor(String nombre, String apellidos, String numid, String tel, String tipo, int totventas, int totcomision) {
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.numid = numid;
-        this.tel = tel;
+        super(nombre, numid, tel, apellidos);
         this.tipo = tipo;
         this.totventas = totventas;
         this.totcomision = totcomision;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getApellidos() {
-        return apellidos;
-    }
-
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
-    }
-
-    public String getNumid() {
-        return numid;
-    }
-
-    public void setNumid(String numid) {
-        this.numid = numid;
-    }
-
-    public String getTel() {
-        return tel;
-    }
-
-    public void setTel(String tel) {
-        this.tel = tel;
     }
 
     public String getTipo() {
@@ -84,6 +50,15 @@ public class Vendedor {
         this.totcomision = totcomision;
     }
 
-    
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Vehículos vendidos: ");
+        for (Vehiculo vh : this.vh_vendidos) {
+            sb.append(vh.toString());
+            sb.append("\n");
+        }
+        return "Vendedor: \n" + super.toString() + sb.toString();
+    }
     
 }

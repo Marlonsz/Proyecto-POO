@@ -8,29 +8,24 @@ package Cliente_Vendedor;
 import Vehículos.Vehiculo;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  *
  * @author Marlon
  */
-public class Cliente {
-    private String nombre;
-    private String apellidos;
-    private String numid;
-    private String tel;
+public class Cliente extends Usuario {
+
     private String pais;
     private String ciudad;
     private String calle;
     private String sector;
     private String numviv;
-    private String fechaIng;
+    private Date fechaIng;
     private ArrayList<Vehiculo> vh_adq;
 
-    public Cliente(String nombre, String apellidos, String numid, String tel, String pais, String ciudad, String calle, String sector, String numviv, String fechaIng, ArrayList<Vehiculo> vh_adq) {
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.numid = numid;
-        this.tel = tel;
+    public Cliente(String nombre, String apellidos, String numid, String tel, String pais, String ciudad, String calle, String sector, String numviv, Date fechaIng, ArrayList<Vehiculo> vh_adq) {
+        super(nombre, apellidos, numid, tel);
         this.pais = pais;
         this.ciudad = ciudad;
         this.calle = calle;
@@ -38,38 +33,6 @@ public class Cliente {
         this.numviv = numviv;
         this.fechaIng = fechaIng;
         this.vh_adq = vh_adq;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getApellidos() {
-        return apellidos;
-    }
-
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
-    }
-
-    public String getNumid() {
-        return numid;
-    }
-
-    public void setNumid(String numid) {
-        this.numid = numid;
-    }
-
-    public String getTel() {
-        return tel;
-    }
-
-    public void setTel(String tel) {
-        this.tel = tel;
     }
 
     public String getPais() {
@@ -112,11 +75,11 @@ public class Cliente {
         this.numviv = numviv;
     }
 
-    public String getFechaIng() {
+    public Date getFechaIng() {
         return fechaIng;
     }
 
-    public void setFechaIng(String fechaIng) {
+    public void setFechaIng(Date fechaIng) {
         this.fechaIng = fechaIng;
     }
 
@@ -130,8 +93,17 @@ public class Cliente {
 
     @Override
     public String toString() {
-        //TODO: Terminar este método.
-        return "Terminar!";
+        StringBuilder sb = new StringBuilder();
+        sb.append(String.format("País: %s%n", this.pais));
+        sb.append(String.format("Ciudad: %s%n", this.ciudad));
+        sb.append(String.format("Dirección: %s %s %s%n", this.sector, this.calle, this.numviv));
+        sb.append(String.format("Fecha de ingreso: %s%n", this.fechaIng.toString()));
+        sb.append(String.format("Vehículos comprados: %n"));
+        for (Vehiculo vh : this.vh_adq) {
+            sb.append(vh.toString());
+            sb.append("\n");
+        }
+        return "Cliente: \n" + super.toString() + sb.toString();
     }
     
 }
