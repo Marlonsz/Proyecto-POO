@@ -167,11 +167,18 @@ public class UI {
                 (double) datos.get(7), (Date)datos.get(8),(Date) datos.get(9));
     }
 /*Ordena el arreglo de vehiculos por fecha de ingreso*/
-    public static void compare( ArrayList<Vehiculo> vehiculos ) {
+@Deprecated
+    /*
+    Para el  bien de la sanidad mental de todos lo que revisan este código:
+    Hay que implementar Comparable en Vehículos.
+    O implementar Comparators
+    https://www.mkyong.com/java/java-object-sorting-example-comparable-and-comparator/
+     */
+public static void compare(ArrayList<Vehiculo> vehiculos ) {
         Vehiculo aux;
 		for(int i=0;i<vehiculos.size();i++){
                     for(int j=1;j<vehiculos.size()-1;j++){
-                        if (vehiculos.get(j).getFing().before(vehiculos.get(i).getFing())==true ){
+                        if (vehiculos.get(j).getFecha_ingreso().before(vehiculos.get(i).getFecha_ingreso())) {
                             aux=vehiculos.get(i);
                             vehiculos.remove(i);
                             vehiculos.add(i, vehiculos.get(j));
@@ -208,7 +215,7 @@ public class UI {
         System.out.print("Ingrese numero de vivienda: ");
         String numVivi=scanner.nextLine();
         System.out.print("Ingrese fecha de ingreso: ");
-        String fecha_ingreso=scanner.nextLine();
+        Date fecha_ingreso = validar.validarFecha("Ingrese fecha correcta");
         /*Pregunta el numero de vehiculos que ha comprado*/
         System.out.print("Ingrese el numero de vehiculos adquiridos ");
         String nveh = scanner.nextLine();
