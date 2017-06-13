@@ -3,7 +3,6 @@ import Vehículos.Camiones;
 import Vehículos.Camionetas;
 import Vehículos.Motos;
 
-
 import java.util.ArrayList;
 
 
@@ -77,7 +76,7 @@ public class ProyectoPoo {
                 case 5:
                     UI.compare(p_automotor.getPatio());
                     for(int i=0;i<p_automotor.getPatio().size();i++){
-                        p_automotor.getPatio().get(i).toString();
+                        System.out.println(p_automotor.getPatio().get(i).toString());
                     }/* TODO: Reporte de vehículos actualmente en el patio, 
                     ordenados por fecha de ingreso 
                     */

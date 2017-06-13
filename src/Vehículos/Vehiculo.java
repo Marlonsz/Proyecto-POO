@@ -120,16 +120,14 @@ public class Vehiculo {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(String.format("%s %s", this.marca, this.modelo));
-        sb.append(String.format("Fecha de fabricación: %s", this.fechafab.toString()));
-        sb.append(String.format("Datos del vehículo: %nNúmero de chasis %s%nNúmero del motor: %s%n", this.numchasis, this.nummotor));
-        sb.append(String.format("Propietario: %s%n", (this.propietario.equals("") ? "Parque automotor" : this.propietario)));
-        sb.append(String.format("Cilindraje %.2fL%n", this.cilindraje));
-        sb.append(String.format("Precio sugerido: %.2f%n", this.precio_sugerido));
-        sb.append(String.format("Fecha de ingreso: %s%n", this.fecha_ingreso.toString()));
-        sb.append(String.format("Fecha de venta: %s%n", (this.fecha_venta == null) ? "No se ha vendido" : this.fecha_venta.toString()));
-        return sb.toString();
+        return String.format("%s %s", this.marca, this.modelo) +
+                String.format("Fecha de fabricación: %s", this.fechafab.toString()) +
+                String.format("Datos del vehículo: %nNúmero de chasis %s%nNúmero del motor: %s%n", this.numchasis, this.nummotor) +
+                String.format("Propietario: %s%n", (this.propietario.equals("") ? "Parque automotor" : this.propietario)) +
+                String.format("Cilindraje %.2fL%n", this.cilindraje) +
+                String.format("Precio sugerido: %.2f%n", this.precio_sugerido) +
+                String.format("Fecha de ingreso: %s%n", this.fecha_ingreso.toString()) +
+                String.format("Fecha de venta: %s%n", (this.fecha_venta == null) ? "No se ha vendido" : this.fecha_venta.toString());
     }
     
     

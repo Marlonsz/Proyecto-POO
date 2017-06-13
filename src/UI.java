@@ -64,7 +64,7 @@ public class UI {
     }
 
     public static ArrayList<Object> ingresoDatos() {
-        ArrayList<Object> datos = new ArrayList<Object>();
+        ArrayList<Object> datos = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
         System.out.print("Ingrese la marca: ");
         String marca = scanner.nextLine();
@@ -107,11 +107,7 @@ public class UI {
         int camP;
         camP = validar.capturarNumeroRango(0, 1);
         boolean camParqueo;
-        if (camP == 1) {
-            camParqueo = true;
-        } else {
-            camParqueo = false;
-        }
+         camParqueo = camP == 1;
         
         return new Automovil(tipo, numPuertas, camParqueo, (String) datos.get(0), (String) datos.get(1), (Date) datos.get(2),
        (String) datos.get(3),(String) datos.get(4),(String) datos.get(5),(double) datos.get(6),(double) datos.get(7), (Date)datos.get(8),(Date) datos.get(9));
@@ -124,14 +120,9 @@ public class UI {
         System.out.print("Ingrese la capacidad de carga: ");
         double capCarga = scanner.nextInt();
         System.out.print("Ingrese 1 si tiene rastreo satelital, o 0 en caso contrario ");
-        int rastreo = scanner.nextInt();
-        rastreo=validar.capturarNumeroRango(0, 1);
+        int rastreo = validar.capturarNumeroRango(0, 1);
         boolean rasSat;
-        if (rastreo == 1) {
-            rasSat = true;
-        } else {
-            rasSat = false;
-        }
+        rasSat = rastreo == 1;
         return new Camiones(numruedas, capCarga, rasSat, (String) datos.get(0), (String) datos.get(1), (Date) datos.get(2),
        (String) datos.get(3),(String) datos.get(4),(String) datos.get(5),(double) datos.get(6),(double) datos.get(7), (Date)datos.get(8),(Date) datos.get(9));
     }
@@ -194,7 +185,7 @@ public static void compare(ArrayList<Vehiculo> vehiculos ) {
 
     public static void ingresarCliente(ArrayList<Vehiculo> disponibles) {
         //MEJORAR--AGREGAR AL CLIENTE LOS VEHICULOS QUE HA ADQUIRIDO
-        ArrayList<Vehiculo> vehiculos=new ArrayList<Vehiculo>();
+        ArrayList<Vehiculo> vehiculos = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
         System.out.print("Ingrese nombre: ");
         String nombre=scanner.nextLine();

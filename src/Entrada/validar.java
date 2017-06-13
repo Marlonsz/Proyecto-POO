@@ -102,8 +102,6 @@ public class validar {
             String tipo = sc.nextLine();
             if (tipos.contains(tipo)) {
                 return tipo;
-            } else {
-                continue;
             }
         } while (true);
     }
