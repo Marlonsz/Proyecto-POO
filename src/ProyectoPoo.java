@@ -15,17 +15,16 @@ public class ProyectoPoo {
     public static void main(String[] args) {
         //TODO: Terminar el main.
         Patio p_automotor = new Patio(15);
-
-        System.out.println("----------------------------------------------------");
-        int respuesta = UI.imprimirMenuPrincipal();
-        System.out.println(respuesta);
         ArrayList<String> tipos = new ArrayList<>();
         tipos.add("automovil");
         tipos.add("camiones");
         tipos.add("camionetas");
         tipos.add("otros");
-
-        while (respuesta!=8){
+        boolean continuar = true;
+        while (continuar) {
+            System.out.println("----------------------------------------------------");
+            int respuesta = UI.imprimirMenuPrincipal();
+            System.out.println(respuesta);
             switch (respuesta) {
                 case 1:
                     UI.imprimirMenuIngresoVehicular();
@@ -92,14 +91,13 @@ public class ProyectoPoo {
                     break;
                 case 8:
                     System.out.println("Gracias por confiar en nuestro sistema!");
-                    System.exit(0);
+                    continuar = false;
+                    break;
                 default:
                     // En el imposible caso de que salga un número diferente (que ya validamos) sabremos porqué.
                     throw new IllegalArgumentException();
             }
             System.out.println("-----------------------------------------------------------------------");
-            respuesta = UI.imprimirMenuPrincipal();
-
         }
     }
 }
