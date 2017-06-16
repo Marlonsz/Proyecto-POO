@@ -6,13 +6,14 @@
 package Vehículos;
 
 
+import java.util.Comparator;
 import java.util.Date;
 
 /**
  *
  * @author Marlon
  */
-public class Vehiculo {
+public class Vehiculo implements Comparable<Vehiculo> {
     private String marca;
     private String modelo;
     private Date fechafab;
@@ -118,6 +119,13 @@ public class Vehiculo {
         this.fecha_venta = fecha_venta;
     }
 
+    @Override
+    public int compareTo(Vehiculo vh) {
+        /*
+        Comparación por defecto: Comparar por fecha para ordenar.
+         */
+        return (this.fecha_ingreso.compareTo(vh.fecha_ingreso));
+    }
     @Override
     public String toString() {
         return String.format("%s %s", this.marca, this.modelo) +
