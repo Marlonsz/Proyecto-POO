@@ -34,5 +34,9 @@ public class Color {
     public static final String FONDO_CYAN = (char)27+"[046;30m";
     /**Cambiar color de fondo de texto a blanco con color de texto negro*/
     public static final String FONDO_BLANCO = (char)27+"[047;30m";
+    /**
+     * Reiniciar colores por defecto
+     */
+    public static final String REINICIAR = (char) 27 + "[000;30m";
 
 }//Cierre de la clase TextColor.

@@ -19,8 +19,12 @@ public class UI {
                 (Color.MAGENTA)+"2) Ingreso de clientes%n" +
                 (Color.MAGENTA)+"3) Ingreso de vendedores%n" +
                 (Color.MAGENTA)+"4) Registrar carro saliente%n" +
-                (Color.MAGENTA)+"5) Salir%n");
-        return validar.capturarNumeroRango(0, 5);
+                (Color.MAGENTA) + "5) Reporte de vehículos actualmente en el patio%n" +
+                (Color.MAGENTA) + "6) Reporte de clientes actuales%n" +
+                (Color.MAGENTA) + "7) Reporte de vendendores%n" +
+                (Color.MAGENTA) + "8) Salir%n" +
+                (Color.REINICIAR));
+        return validar.capturarNumeroRango(0, 8);
     }
 
     public static void imprimirMenuIngresoVehicular() {
