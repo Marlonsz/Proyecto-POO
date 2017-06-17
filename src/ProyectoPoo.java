@@ -1,7 +1,7 @@
 import Vehículos.Automovil;
-import Vehículos.Camiones;
-import Vehículos.Camionetas;
-import Vehículos.Motos;
+import Vehículos.Camion;
+import Vehículos.Camioneta;
+import Vehículos.Moto;
 
 import java.util.ArrayList;
 
@@ -37,19 +37,19 @@ public class ProyectoPoo {
                             break;
                         case "camiones":
                             ArrayList<Object> dc = UI.ingresoDatos();
-                            Camiones ca = UI.imprimirMenuIngresoCamiones(dc);
+                            Camion ca = UI.imprimirMenuIngresoCamion(dc);
                             p_automotor.ingresarVehículo(ca);
                             break;
 
                         case "motos":
                             ArrayList<Object> mo = UI.ingresoDatos();
-                            Motos m = UI.imprimirMenuIngresoMotos(mo);
+                            Moto m = UI.imprimirMenuIngresoMotos(mo);
                             p_automotor.ingresarVehículo(m);
                             break;
                         case "camionetas":
                             // Terminar el menu de camionetas, falta 2 atributos
                             ArrayList<Object> cam = UI.ingresoDatos();
-                            Camionetas c = UI.imprimirMenuIngresoCamionetas(cam);
+                            Camioneta c = UI.imprimirMenuIngresoCamioneta(cam);
                             p_automotor.ingresarVehículo(c);
                             break;
                         case "otros":
