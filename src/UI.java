@@ -11,8 +11,13 @@ import java.util.Scanner;
  * Created by piero512 on 08/06/17.
  */
 public class UI {
+    /**
+     * Función que imprime el menú principal
+     *
+     * @return entero con la opción seleccionada.
+     */
     public static int imprimirMenuPrincipal() {
-        
+
         System.out.printf((Color.FONDO_AMARILLO)+"Bienvenido al sistema del Patio Automotor%n" +
                 (Color.AZUL)+"Las siguientes opciones están disponibles%n" +
                 (Color.MAGENTA)+"1) Ingreso de vehículos al patio%n" +
@@ -27,6 +32,10 @@ public class UI {
         return validar.capturarNumeroRango(0, 8);
     }
 
+    /**
+     *  Función que se encarga de imprimir el
+     *  menú de ingreso vehicular.
+     */
     public static void imprimirMenuIngresoVehicular() {
         // TODO: Hacer que identifique el tipo de vehículo.
         System.out.printf((Color.FONDO_AMARILLO)+"Bienvenido al ingreso de vehículos%n" +
@@ -45,13 +54,19 @@ public class UI {
 
     }
 
+    /**
+     * Función que se encarga de pedirle al usuario
+     * el tipo de vehículo que va a ingresar al sistema.
+     * @param tipos lista de tipos admisibles
+     * @return cadena con el tipo escogido por el usuario.
+     */
     public static String ingresarTipoVehiculo(ArrayList<String> tipos) {
         /*
         
          */
         Scanner sc = new Scanner(System.in);
         System.out.println("Ingrese el tipo de vehículo de los siguientes tipos:");
-        System.out.println("Automovil,Motos, Camionetas, Camiones u Otros");
+        System.out.println("Automovil,Moto, Camioneta, Camion u Otro");
         String cadena;
         boolean terminar;
         do {
@@ -67,6 +82,12 @@ public class UI {
 
     }
 
+    /**
+     * Función que se encarga de recolectar los
+     * datos comunes de los autos.
+     * @return Un arreglo de Objetos con todas las propiedades
+     * del auto.
+     */
     public static ArrayList<Object> ingresoDatos() {
         ArrayList<Object> datos = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
@@ -76,7 +97,7 @@ public class UI {
         System.out.print("Ingrese el modelo : ");
         String modelo = scanner.nextLine();
         datos.add(modelo);
-        Date f_fabricacion = validar.validarFecha("Ingrese la fecha de fabricaci\u00f3n (en dd-mm-yy): ");
+        Date f_fabricacion = validar.validarFecha("Ingrese la fecha de fabricación (en dd-mm-yy): ");
         datos.add(f_fabricacion);
         System.out.print("Ingrese el n\u00famero de chasis: ");
         String n_chasis = scanner.nextLine();
@@ -87,37 +108,48 @@ public class UI {
         System.out.print("Ingrese el propietario: ");
         String propietario = scanner.nextLine();
         datos.add(propietario);
-        //ERROR....EN CILINDRAJE Y PRECIO SUGERIDO NO ACEPTA DOUBLE por teclado
-        double cilindraje = validar.ingresarValorNumerico(0, "Ingrese el cilindraje (en cm3): ");
+        int cilindraje = (int) validar.ingresarValorNumerico(0, "Ingrese el cilindraje (en cm3): ");
         datos.add(cilindraje);
         double precio_sugerido = validar.ingresarValorNumerico(0, "Ingrese el valor sugerido: ");
         datos.add(precio_sugerido);
-
-        //VALIDAR QUE LA FECHA DE INGRESO SEA ANTES QUE LA DE VENTA
+        System.out.println("Ingrese fecha de ingreso (vacio si hoy): ");
         Date fecha_ingreso = validar.validarFecha("Ingrese fecha de ingreso: ");
         datos.add(fecha_ingreso);
-        System.out.println("Ingrese fecha de ingreso (vacio si hoy): ");
+        // Aquí se usa null, ya que si se ingresa el automovil, es por que no se ha vendido aún.
         Date fecha_venta = null;
         datos.add(fecha_venta);
         return datos;
     }
-     public static Automovil imprimirMenuIngresoAutomovil(ArrayList<Object> datos) {
+
+    /**
+     * Función que se encarga de pedirle al usuario datos adicionales, que
+     * sólo serían apropiados en Automóviles.
+     * @param datos Recibe el {@link ArrayList<Vehiculo>} de Objetos de la función ingresoDatos
+     * @return un objeto Automóvil correctamente inicializado.
+     */
+    public static Automovil imprimirMenuIngresoAutomovil(ArrayList<Object> datos) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Ingrese tipo de automovil: ");
         String tipo = scanner.nextLine();
-        System.out.print("Ingrese n\u00famero de puertas: ");
+        System.out.print("Ingrese número de puertas: ");
         int numPuertas = (int) validar.ingresarValorNumerico(0, "Ingrese numero de puertas");
-        System.out.print("Ingrese 1 si tiene c\u00e1mara de parqueo, o 0 en caso contrario: ");
+        System.out.print("Ingrese 1 si tiene cámara de parqueo, o 0 en caso contrario: ");
         int camP;
         camP = validar.capturarNumeroRango(0, 1);
         boolean camParqueo;
-         camParqueo = camP == 1;
-        
+        camParqueo = camP == 1;
         return new Automovil(tipo, numPuertas, camParqueo, (String) datos.get(0), (String) datos.get(1), (Date) datos.get(2),
-       (String) datos.get(3),(String) datos.get(4),(String) datos.get(5),(double) datos.get(6),(double) datos.get(7), (Date)datos.get(8),(Date) datos.get(9));
+                (String) datos.get(3),(String) datos.get(4),(String) datos.get(5),(double) datos.get(6),(double) datos.get(7), (Date)datos.get(8),(Date) datos.get(9));
     }
-     
-    public static Camiones imprimirMenuIngresoCamiones(ArrayList<Object> datos) {
+
+    /**
+     * Función que se encarga de pedirle al usuario datos adicionales, que
+     * sólo serían apropiados en Camion.
+     *
+     * @param datos Recibe el {@link ArrayList<Vehiculo>} de Objetos de la función ingresoDatos
+     * @return un objeto Camion correctamente inicializado.
+     */
+    public static Camion imprimirMenuIngresoCamion(ArrayList<Object> datos) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Ingrese n\u00famero de ruedas: ");
         int numruedas = (int) validar.ingresarValorNumerico(0, "Ingrese el numero de ruedas") ;
@@ -127,22 +159,35 @@ public class UI {
         int rastreo = validar.capturarNumeroRango(0, 1);
         boolean rasSat;
         rasSat = rastreo == 1;
-        return new Camiones(numruedas, capCarga, rasSat, (String) datos.get(0), (String) datos.get(1), (Date) datos.get(2),
+        return new Camion(numruedas, capCarga, rasSat, (String) datos.get(0), (String) datos.get(1), (Date) datos.get(2),
        (String) datos.get(3),(String) datos.get(4),(String) datos.get(5),(double) datos.get(6),(double) datos.get(7), (Date)datos.get(8),(Date) datos.get(9));
     }
-    
-    public static Camionetas imprimirMenuIngresoCamionetas(ArrayList<Object> datos) {
-        //TERMINAR MENU Camionetas-FALTA LOS 2 ATRIBUTOS
+
+    /**
+     * Función que se encarga de pedirle al usuario datos adicionales, que
+     * sólo serían relevantes en una camioneta
+     *
+     * @param datos Recibe el {@link ArrayList<Vehiculo>} de Objetos de la función ingresoDatos
+     * @return un objeto Camioneta correctamente inicializado.
+     */
+    public static Camioneta imprimirMenuIngresoCamioneta(ArrayList<Object> datos) {
+        //TERMINAR MENU Camioneta-FALTA LOS 2 ATRIBUTOS
         Scanner scanner=new Scanner(System.in);
         System.out.print("Ingrese tipo de cabina: ");
         String tipoCab = scanner.nextLine();
-        return new Camionetas( tipoCab,(String) datos.get(0), (String) datos.get(1), (Date) datos.get(2),
+        return new Camioneta(tipoCab, (String) datos.get(0), (String) datos.get(1), (Date) datos.get(2),
        (String) datos.get(3),(String) datos.get(4),(String) datos.get(5),(double) datos.get(6),
                 (double) datos.get(7), (Date)datos.get(8),(Date) datos.get(9));
     }
-    
-   
-    public static Motos imprimirMenuIngresoMotos(ArrayList<Object> datos) {
+
+    /**
+     * Función que se encarga de pedirle al usuario datos adicionales, que
+     * sólo serían relevantes en una Moto
+     *
+     * @param datos Recibe el {@link ArrayList<Vehiculo>} de Objetos de la función ingresoDatos
+     * @return un objeto Moto correctamente inicializado.
+     */
+    public static Moto imprimirMenuIngresoMotos(ArrayList<Object> datos) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Ingrese el tipo de moto");
         String tipo = sc.nextLine();
@@ -150,14 +195,21 @@ public class UI {
         String sisArr = sc.nextLine();
         System.out.println("Ingrese el tipo de transmisión de la moto");
         String transmision = sc.nextLine();
-        return new Motos(tipo, sisArr, transmision, (String) datos.get(0), (String) datos.get(1), (Date) datos.get(2),
+        return new Moto(tipo, sisArr, transmision, (String) datos.get(0), (String) datos.get(1), (Date) datos.get(2),
        (String) datos.get(3),(String) datos.get(4),(String) datos.get(5),(double) datos.get(6),
-                (double) datos.get(7), (Date)datos.get(8),(Date) datos.get(9));
+                (double) datos.get(7), (Date)datos.get(8), (Date) datos.get(9));
     }
-    
-    public static Otros imprimirMenuIngresoOtros(ArrayList<Object> datos) {
-        //TERMINAR MENU Otros -FALTA LOS 3 ATRIBUTOS
-        return new Otros( (String) datos.get(0), (String) datos.get(1), (Date) datos.get(2),
+
+    /**
+     * Función que se encarga de pedirle al usuario datos adicionales, que
+     * sólo serían relevantes en otro tipo de vehículos.
+     *
+     * @param datos Recibe el {@link ArrayList<Vehiculo>} de Objetos de la función ingresoDatos
+     * @return un objeto Otro correctamente inicializado.
+     */
+    public static Otro imprimirMenuIngresoOtros(ArrayList<Object> datos) {
+        //TERMINAR MENU Otro -FALTA LOS 3 ATRIBUTOS
+        return new Otro((String) datos.get(0), (String) datos.get(1), (Date) datos.get(2),
        (String) datos.get(3),(String) datos.get(4),(String) datos.get(5),(double) datos.get(6),
                 (double) datos.get(7), (Date)datos.get(8),(Date) datos.get(9));
     }
@@ -170,23 +222,28 @@ public class UI {
     https://www.mkyong.com/java/java-object-sorting-example-comparable-and-comparator/
      */
 public static void compare(ArrayList<Vehiculo> vehiculos ) {
-        Vehiculo aux;
-		for(int i=0;i<vehiculos.size();i++){
-                    for(int j=1;j<vehiculos.size()-1;j++){
-                        if (vehiculos.get(j).getFecha_ingreso().before(vehiculos.get(i).getFecha_ingreso())) {
-                            aux=vehiculos.get(i);
-                            vehiculos.remove(i);
-                            vehiculos.add(i, vehiculos.get(j));
-                            vehiculos.remove(j);
-                            vehiculos.add(j, aux);
-			
-		}
-                    }
-                }
-		
-		
-	}
+    Vehiculo aux;
+    for(int i = 0; i<vehiculos.size(); i++){
+        for(int j = 1; j<vehiculos.size()-1; j++){
+            if (vehiculos.get(j).getFecha_ingreso().before(vehiculos.get(i).getFecha_ingreso())) {
+                aux=vehiculos.get(i);
+                vehiculos.remove(i);
+                vehiculos.add(i, vehiculos.get(j));
+                vehiculos.remove(j);
+                vehiculos.add(j, aux);
 
+            }
+        }
+    }
+
+
+}
+
+    /**
+     * Función que se encarga de inicializar una instancia de Cliente
+     *
+     * @param disponibles
+     */
     public static void ingresarCliente(ArrayList<Vehiculo> disponibles) {
         //MEJORAR--AGREGAR AL CLIENTE LOS VEHICULOS QUE HA ADQUIRIDO
         ArrayList<Vehiculo> vehiculos = new ArrayList<>();
@@ -216,22 +273,33 @@ public static void compare(ArrayList<Vehiculo> vehiculos ) {
         String nveh = scanner.nextLine();
         int num=validar.ingresarValorNumerico(nveh);
         /* muestra un listado con la descripcion de cada vehiculo y permite escoger una opcion*/
-        for(int i=0;i<num;i++){
+        // ¿Qué es esto?
+        for(int i = 0; i<num; i++){
             System.out.print("Ingrese el numero del "+(i+1)+ "vehiculo adquirido: ");
-            for(int j=0;j<disponibles.size();j++){
+            for(int j = 0; j<disponibles.size(); j++){
                 System.out.println((j+1)+disponibles.get(j).toString());
             }
             String op=scanner.nextLine();
             int op2=validar.ingresarValorNumerico(op);
             vehiculos.add(disponibles.get(op2-1));
-            
-        
+
+
         }
-        
-        Cliente perfil= new Cliente(nombre,apellido,iD,tel,pais,ciudad,calle,sector,numVivi,fecha_ingreso,vehiculos);
+
+        Cliente perfil= new Cliente(nombre,apellido,iD,tel,pais,ciudad,calle,sector,numVivi, fecha_ingreso, vehiculos);
     }
-    public static void ingresarVendedor() {
-        //MEJORAR--AGREGAR TIPO DE VENDEDOR, CALCULO DE LA COMISIÓN
+
+    /**
+     * Funcion que se encarga de inicializar un vendedor con los
+     * datos ingresados por el usuario.
+     *
+     * @return un objeto vendedor.
+     */
+    public static Vendedor ingresarVendedor() {
+        /*
+        MEJORAR--AGREGAR TIPO DE VENDEDOR, CALCULO DE LA COMISIÓN
+        TODO: Validar.
+        */
         Scanner scanner = new Scanner(System.in);
         System.out.print("Ingrese nombre: ");
         String nombre=scanner.nextLine();
@@ -244,10 +312,10 @@ public static void compare(ArrayList<Vehiculo> vehiculos ) {
         System.out.print("Ingrese tipo de vendedor: ");
         String pais=scanner.nextLine();
         System.out.print("Ingrese total de venta: ");
-        int totventas=scanner.nextInt();
+        int totventas = (int) validar.ingresarValorNumerico(0,"Ingrese total de venta: ");
         System.out.print("Ingrese total de comisión: ");
-        int totcomision=scanner.nextInt();
-        Vendedor perfil= new Vendedor(nombre,apellido,iD,tel,pais,totventas,totcomision);
+        int totcomision = (int) validar.ingresarValorNumerico(0, "Ingrese valor total de comisión: ");
+        return new Vendedor(nombre, apellido,iD,tel,pais,totventas,totcomision);
     }
        
 
