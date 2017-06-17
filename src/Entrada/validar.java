@@ -5,11 +5,19 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 /**
  * Created by piero512 on 3/6/17.
  */
 public class validar {
+    /**
+     * Función para validar el ingreso de datos numéricos en un rango
+     *
+     * @param n_inicio número inicial del rango
+     * @param n_final  número final del rango
+     * @return número capturado dentro del rango.
+     */
     public static int capturarNumeroRango(int n_inicio, int n_final) {
         Scanner input = new Scanner(System.in);
         int numero;
@@ -27,6 +35,14 @@ public class validar {
         return numero;
     }
 
+    /**
+     * Función que permite el ingreso de un dato numérico, mostrando
+     * un mensaje adecuado cuando el usuario ingresa un número incorrecto
+     * @param n_inicio número de inicio
+     * @param n_final número final
+     * @param mensaje mensaje a mostrar en caso de error
+     * @return número capturado al usuario dentro del rango
+     */
     public static double ingresarValorNumerico(int n_inicio, int n_final, String mensaje) {
         double valor;
         Scanner entrada = new Scanner(System.in);
@@ -41,8 +57,12 @@ public class validar {
         return valor;
     }
 
-    /*Valida el ingreso de un valor numérico entre 0 y 15*/
-    public static int ingresarValorNumerico( String mensaje) {
+    /**
+     * Función que permite el ingreso de un valor numérico cualquiera
+     * @param mensaje Mensaje mostrado en caso de error
+     * @return número pedido al usuario
+     */
+    public static int ingresarValorNumerico(String mensaje) {
         int valor;
         Scanner entrada = new Scanner(System.in);
         do {
@@ -56,6 +76,13 @@ public class validar {
         return valor;
     }
 
+    /**
+     * Función que valida la entrada de un valor numérico
+     * con un inicio y un mensaje de error.
+     * @param n_inicio número de inicio.
+     * @param mensaje mensaje a mostrar en caso de error.
+     * @return número pedido al usuario.
+     */
     public static double ingresarValorNumerico(int n_inicio, String mensaje) {
         double valor;
         Scanner entrada = new Scanner(System.in);
@@ -65,15 +92,19 @@ public class validar {
                 System.out.println("No ha ingresado un número!");
                 entrada.next();
             }
-            valor = entrada.nextInt();
+            valor = entrada.nextDouble();
         } while (!(valor > n_inicio));
         return valor;
-        //VALOR QUE SE RETORNA ES INT O DOUBLE?
     }
 
+    /**
+     * Función que valida el ingreso de una fecha
+     * en el formato DD-MM-AA
+     * @param mensaje mensaje mostrado en caso de
+     *                fecha incorrecta.
+     * @return un objeto fecha con la fecha ingresada por el usuario
+     */
     public static Date validarFecha(String mensaje) {
-        /*CORREGIR a pesar de que se ponga fecha correcta sale fecha no válida
-        hasta la segunda vez que se la ingresa*/
         Date f_retornar = new Date();
         Scanner entrada = new Scanner(System.in);
         SimpleDateFormat df = new SimpleDateFormat("dd-mm-yy");
@@ -95,6 +126,13 @@ public class validar {
             return f_retornar;
         }
     }
+
+    /**
+     * Función que valida el ingreso de los tipos de carros
+     * soportados por este sistema.
+     * @param tipos recibe una lista con los tipos soportados.
+     * @return cadena con el tipo especificado por el usuario.
+     */
     public static String validarTipoVehiculo(ArrayList<String> tipos) {
         // TODO: Mejorar esta nota.
         Scanner sc = new Scanner(System.in);
@@ -105,5 +143,16 @@ public class validar {
             }
         } while (true);
     }
-    
+
+    /**
+     * Función que valida que el usuario
+     * ingrese un número de teléfono válido.
+     *
+     * @param tel número de teléfono.
+     * @return verdadero si es válido, falso de otra manera.
+     */
+    public static boolean validarTelefono(String tel) {
+        final Pattern patt = Pattern.compile("[0-9]+");
+        return patt.matcher(tel).matches();
+    }
 }
