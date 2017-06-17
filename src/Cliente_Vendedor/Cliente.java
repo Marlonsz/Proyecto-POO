@@ -24,6 +24,21 @@ public class Cliente extends Usuario {
     private Date fechaIng;
     private ArrayList<Vehiculo> vh_adq;
 
+    /**
+     * Constructor de cliente:
+     *
+     * @param nombre    del cliente
+     * @param apellidos del cliente
+     * @param numid     # de cédula del cliente
+     * @param tel       # de teléfono del cliente
+     * @param pais      País del cliente.
+     * @param ciudad    Ciudad del cliente
+     * @param calle     Calle
+     * @param sector    Sector
+     * @param numviv    Número de la villa
+     * @param fechaIng  Fecha de ingreso al sistema
+     * @param vh_adq    Vehículos comprados por el cliente.
+     */
     public Cliente(String nombre, String apellidos, String numid, String tel, String pais, String ciudad, String calle, String sector, String numviv, Date fechaIng, ArrayList<Vehiculo> vh_adq) {
         super(nombre, apellidos, numid, tel);
         this.pais = pais;
@@ -91,6 +106,11 @@ public class Cliente extends Usuario {
         this.vh_adq = vh_adq;
     }
 
+    /**
+     * Función que retorna una representación en
+     * String del Objeto: Muestra los atributos no comunes.
+     * @return String con datos del objeto.
+     */
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

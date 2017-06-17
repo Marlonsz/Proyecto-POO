@@ -14,11 +14,25 @@ import java.util.ArrayList;
  * @author Marlon
  */
 public class Vendedor extends Usuario {
+    /**
+     * Clase para agrupar datos del vendedor
+     */
     private String tipo;
     private int totventas;
     private int totcomision;
     private ArrayList<Vehiculo> vh_vendidos = new ArrayList<>();
 
+    /**
+     * Constructor por defecto de Vendedor.
+     * Permite inicializarlo con todos los datos necesarios
+     * @param nombre del vendedor
+     * @param apellidos del vendedor
+     * @param numid # de cédula del vendedor
+     * @param tel # de teléfono del vendedor
+     * @param tipo del vendedor: Junior, Master, Amateur, etc.
+     * @param totventas total de ventas del vendedor
+     * @param totcomision total de comisiones del vendedor.
+     */
     public Vendedor(String nombre, String apellidos, String numid, String tel, String tipo, int totventas, int totcomision) {
         super(nombre, numid, tel, apellidos);
         this.tipo = tipo;
@@ -50,6 +64,10 @@ public class Vendedor extends Usuario {
         this.totcomision = totcomision;
     }
 
+    /**
+     * Método toString del vendedor
+     * @return Datos del vendedor en una String.
+     */
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
