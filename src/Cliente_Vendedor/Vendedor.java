@@ -19,7 +19,7 @@ public class Vendedor extends Usuario {
      */
     private String tipo;
     private int totventas;
-    private int totcomision;
+    private double totcomision;
     private ArrayList<Vehiculo> vh_vendidos = new ArrayList<>();
 
     /**
@@ -33,13 +33,27 @@ public class Vendedor extends Usuario {
      * @param totventas total de ventas del vendedor
      * @param totcomision total de comisiones del vendedor.
      */
-    public Vendedor(String nombre, String apellidos, String numid, String tel, String tipo, int totventas, int totcomision) {
+    public Vendedor(String nombre, String apellidos, String numid, String tel, String tipo, int totventas, double totcomision) {
         super(nombre, numid, tel, apellidos);
         this.tipo = tipo;
-        this.totventas = totventas;
-        this.totcomision = totcomision;
+        this.totventas = 0;
+        this.totcomision = 0;
     }
 
+    public Vendedor(String tipo, String nombre, String numid, String tel, String apellidos) {
+        super(nombre, numid, tel, apellidos);
+        this.tipo = tipo;
+    }
+
+    public ArrayList<Vehiculo> getVh_vendidos() {
+        return vh_vendidos;
+    }
+
+    public void setVh_vendidos(ArrayList<Vehiculo> vh_vendidos) {
+        this.vh_vendidos = vh_vendidos;
+    }
+
+    
     public String getTipo() {
         return tipo;
     }
@@ -56,11 +70,11 @@ public class Vendedor extends Usuario {
         this.totventas = totventas;
     }
 
-    public int getTotcomision() {
+    public double getTotcomision() {
         return totcomision;
     }
 
-    public void setTotcomision(int totcomision) {
+    public void setTotcomision(double totcomision) {
         this.totcomision = totcomision;
     }
 

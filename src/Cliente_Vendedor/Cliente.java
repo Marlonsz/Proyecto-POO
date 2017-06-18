@@ -49,7 +49,7 @@ public class Cliente extends Usuario {
         this.fechaIng = fechaIng;
         this.vh_adq = vh_adq;
     }
-
+    
     public String getPais() {
         return pais;
     }

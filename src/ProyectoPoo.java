@@ -1,3 +1,5 @@
+import Cliente_Vendedor.Cliente;
+import Cliente_Vendedor.Vendedor;
 import Vehículos.Automovil;
 import Vehículos.Camion;
 import Vehículos.Camioneta;
@@ -15,6 +17,8 @@ public class ProyectoPoo {
     public static void main(String[] args) {
         //TODO: Terminar el main.
         Patio p_automotor = new Patio(15);
+        ArrayList<Cliente> cliente = new ArrayList<>();
+        ArrayList<Vendedor> vendedores = new ArrayList<>();
         ArrayList<String> tipos = new ArrayList<>();
         tipos.add("automovil");
         tipos.add("camiones");
@@ -64,30 +68,24 @@ public class ProyectoPoo {
                     }
                     break;
                 case 2:
-                    UI.ingresarCliente(p_automotor.getPatio());
+                    Cliente c=UI.ingresarCliente(p_automotor.getPatio());
+                    cliente.add(c);
                     break;
                 case 3:
-                    UI.ingresarVendedor();
+                    Vendedor v=UI.ingresarVendedor();
+                    vendedores.add(v);
                     break;
                 case 4:
-                    // TODO: Añadir la salida de autos del patio
+                    UI.Venta(p_automotor.getPatio(), cliente, vendedores);// TODO: Añadir la salida de autos del patio
                     break;
                 case 5:
-                    UI.compare(p_automotor.getPatio());
-                    for(int i=0;i<p_automotor.getPatio().size();i++){
-                        System.out.println(p_automotor.getPatio().get(i).toString());
-                    }/* TODO: Reporte de vehículos actualmente en el patio, 
-                    ordenados por fecha de ingreso 
-                    */
+                    Reportes.reporteVehiculosEnPatio(p_automotor);
                     break;
                 case 6:
-                    /* TODO:Reporte de clientes y los vehículos que han 
-                    adquirido en el caso de que hayan comprado alguno, 
-                    el mismo que se debe ordenar por país, ciudad del cliente 
-                    */
+                    Reportes.reporteClientes(cliente);
                     break;
                 case 7:
-                    // TODO: Reporte de vendedores y los vehículos que han vendido. 
+                    Reportes.reporteVendedores(vendedores);// TODO: Reporte de vendedores y los vehículos que han vendido. 
                     break;
                 case 8:
                     System.out.println("Gracias por confiar en nuestro sistema!");

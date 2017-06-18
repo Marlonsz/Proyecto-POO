@@ -4,6 +4,7 @@ import Entrada.validar;
 import Vehículos.*;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -151,7 +152,7 @@ public class UI {
      */
     public static Camion imprimirMenuIngresoCamion(ArrayList<Object> datos) {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Ingrese n\u00famero de ruedas: ");
+        System.out.print("Ingrese numero de ruedas: ");
         int numruedas = (int) validar.ingresarValorNumerico(0, "Ingrese el numero de ruedas") ;
         System.out.print("Ingrese la capacidad de carga: ");
         double capCarga = scanner.nextInt();
@@ -244,7 +245,7 @@ public static void compare(ArrayList<Vehiculo> vehiculos ) {
      *
      * @param disponibles
      */
-    public static void ingresarCliente(ArrayList<Vehiculo> disponibles) {
+    public static Cliente ingresarCliente(ArrayList<Vehiculo> disponibles) {
         //MEJORAR--AGREGAR AL CLIENTE LOS VEHICULOS QUE HA ADQUIRIDO
         ArrayList<Vehiculo> vehiculos = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
@@ -266,27 +267,34 @@ public static void compare(ArrayList<Vehiculo> vehiculos ) {
         String sector=scanner.nextLine();
         System.out.print("Ingrese numero de vivienda: ");
         String numVivi=scanner.nextLine();
+        //Mejoren el ingreso de la fecha salen 2 mensajes seguidos, tambien el de ingresar valor numerico mejorar
+        //implementar como regresar al menu en caso que no haya vehiculos ya que lo que he hecho es terminar el programa si no hay
         System.out.print("Ingrese fecha de ingreso: ");
-        Date fecha_ingreso = validar.validarFecha("Ingrese fecha correcta");
+        Date fecha_ingreso = validar.validarFecha("Ingrese fecha correcta ");
         /*Pregunta el numero de vehiculos que ha comprado*/
-        System.out.print("Ingrese el numero de vehiculos adquiridos ");
+        System.out.print("Ingrese el numero de vehiculos vendidos ");
         String nveh = scanner.nextLine();
         int num=validar.ingresarValorNumerico(nveh);
+        if(vehiculos.isEmpty()){
+            System.out.println("No hay vehículos en el patio en este momento");
+            System.exit(0);
+        }
         /* muestra un listado con la descripcion de cada vehiculo y permite escoger una opcion*/
-        // ¿Qué es esto?
+        // Pide que ingrese el numero del vehículo que compra y este se añade a s registro de vehículos comprados
         for(int i = 0; i<num; i++){
-            System.out.print("Ingrese el numero del "+(i+1)+ "vehiculo adquirido: ");
+            System.out.print("Ingrese el numero del "+(i+1)+ " vehiculo vendido: ");
             for(int j = 0; j<disponibles.size(); j++){
                 System.out.println((j+1)+disponibles.get(j).toString());
             }
             String op=scanner.nextLine();
             int op2=validar.ingresarValorNumerico(op);
+            System.out.println("");
             vehiculos.add(disponibles.get(op2-1));
 
 
         }
 
-        Cliente perfil= new Cliente(nombre,apellido,iD,tel,pais,ciudad,calle,sector,numVivi, fecha_ingreso, vehiculos);
+        return new Cliente(nombre,apellido,iD,tel,pais,ciudad,calle,sector,numVivi, fecha_ingreso, vehiculos);
     }
 
     /**
@@ -309,14 +317,151 @@ public static void compare(ArrayList<Vehiculo> vehiculos ) {
         String iD=scanner.nextLine();
         System.out.print("Ingrese telefono: ");
         String tel=scanner.nextLine();
-        System.out.print("Ingrese tipo de vendedor: ");
-        String pais=scanner.nextLine();
-        System.out.print("Ingrese total de venta: ");
-        int totventas = (int) validar.ingresarValorNumerico(0,"Ingrese total de venta: ");
-        System.out.print("Ingrese total de comisión: ");
-        int totcomision = (int) validar.ingresarValorNumerico(0, "Ingrese valor total de comisión: ");
-        return new Vendedor(nombre, apellido,iD,tel,pais,totventas,totcomision);
+        while(validar.validarTelefono(tel)==false){
+            System.out.print("Ingrese telefono: ");
+            tel=scanner.nextLine();
+        }   
+        System.out.print("Ingrese tipo de vendedor(Junior/Semi Senior/Senior): ");
+        String tipo=scanner.nextLine().toLowerCase();
+        tipo=validar.validarTipoVendedor(tipo);
+        return new Vendedor(nombre, apellido,iD,tel,tipo);
     }
-       
+    
+    /**
+     * Realiza la venta del vehículo al cliente llevando un registro y modificando los
+     * datos de cada uno
+     * @param vehiculo Arreglo con los vehículos que hay en el patio
+     * @param cliente Clientes de la concesionaria
+     * @param vendedor Vendedores de la concesionaria
+     */
+    public static void Venta(ArrayList<Vehiculo> vehiculo,ArrayList<Cliente> cliente, ArrayList<Vendedor> vendedor){
+        Scanner scanner = new Scanner(System.in);
+        int c=0;
+        int v=0;
+        Vehiculo vh;
+        /* Identifica al cliente por su numero de identificacion, en caso de no estar
+        lo registra
+        */
+        System.out.println("Ingrese el numero de identificación del cliente:");
+        String numid=scanner.nextLine();
+        if(cliente.isEmpty()){
+            cliente.add(ingresarCliente(vehiculo));
+        }
+        for(int i=0;i<cliente.size();i++){
+            if(cliente.get(i).getNumid().contains(numid)){
+                c=i;
+                break;
+            }
+            else if((!cliente.get(i).getNumid().contains(numid))
+                    && (i==cliente.size()-1)){
+                cliente.add(ingresarCliente(vehiculo));
+                c=cliente.size()-1;
+                break;
+                
+            }
+        }
+        /* Identifica al vendedor por su numero de identificacion, en caso de no estar
+        lo registra
+        */
+        System.out.println("Ingrese el numero de identificación del Vendedor:");
+        String numid2=scanner.nextLine();
+        if(vendedor.isEmpty()){
+            vendedor.add(ingresarVendedor());
+        }
+        for(int i=0;i<vendedor.size();i++){
+            if(vendedor.get(i).getNumid().contains(numid2)){
+                v=i;
+                break;
+            }
+            else if((!vendedor.get(i).getNumid().contains(numid2))
+                    && (i==vendedor.size()-1)){
+                vendedor.add(ingresarVendedor());
+                v=vendedor.size()-1;
+                break;
+                
+            }
+        }
+        /* 
+        *Muestra una lista con los vehículos y el usuario selecciona los vehículos 
+        que ha vendido
+        */
+        Cliente c1=cliente.get(c);
+        Vendedor v1=vendedor.get(v);
+        System.out.println("Ingrese el numero de vehículos a vender:");
+        String nveh = scanner.nextLine();
+        int num=validar.ingresarValorNumerico(nveh);
+        if(vehiculo.isEmpty()){
+            System.out.println("No hay vehículos en el patio en este momento");
+            System.exit(0);
+        }
+        for(int i = 0; i<num; i++){
+            System.out.print("Ingrese el numero del "+(i+1)+ "vehiculo vendido: ");
+            for(int j = 0; j<vehiculo.size(); j++){
+                System.out.println((j+1)+vehiculo.get(j).toString());
+            }
+            String op=scanner.nextLine();
+            int op2=validar.ingresarValorNumerico(op);
+            System.out.println("");
+            c1.getVh_adq().add(vehiculo.get(op2-1));
+            vh=vehiculo.get(op2-1);
+            double precio=PrecioFinal(vh,v1);
+                    v1.setTotcomision(v1.getTotcomision()+comisiones(precio,v1));
+                    v1.setTotventas(v1.getTotventas()+1);
+                    v1.getVh_vendidos().add(vh);
+                    System.out.println("Ingrese fecha de venta (vacio si hoy): ");
+                    Date fecha_egreso = validar.validarFecha("Ingrese fecha de egreso: ");
+                    vh.setFecha_venta(fecha_egreso);
+                    vehiculo.remove(vh);
+
+        }
+        /* 
+        *Se asigna la comisión al vendedor, la fecha de salida del vehículo
+        y se retira el vehículo del patio
+        */
+        
+          
+    } 
+    /**
+     * Calcula el precio final del vehículo dependiendo del tipo
+     * @param vh Vehículo que se va a vender
+     * @param v Vendedor que realiza la venta
+     * @return El precio final del vehículo
+     */
+    public static double PrecioFinal(Vehiculo vh,Vendedor v){
+        if(vh instanceof Automovil){
+            return (vh.getPrecio_sugerido()*(5/100))+500+vh.getPrecio_sugerido();
+        }
+        else if(vh instanceof Camioneta){
+            return (vh.getPrecio_sugerido()*(10/100))+700+vh.getPrecio_sugerido();
+        }
+        else if(vh instanceof Camion){
+            return (vh.getPrecio_sugerido()*(15/100))+850+vh.getPrecio_sugerido();
+        }
+        else if(vh instanceof Moto){
+            return (vh.getPrecio_sugerido()*(2.5/100))+200+vh.getPrecio_sugerido();
+        }
+        else {
+            return (vh.getPrecio_sugerido()*(2.5/100))+250+vh.getPrecio_sugerido();
+        }
+        
+    }
+    /**
+     * Calcula la comisión del vendedor
+     * @param preciofinal Precio final del vehículo a vender
+     * @param v Vendedor que realiza la venta
+     * @return La comisión que recibe el vendedor por dicha venta
+     */
+    public static double comisiones(double preciofinal,Vendedor v){
+        if("junior".contentEquals(v.getTipo())){
+            return preciofinal*(3/100);
+        }
+        else if("semi senior".contentEquals(v.getTipo())){
+            return preciofinal*(6/100);
+        }
+        else{
+            return preciofinal*(10/100);
+        }
+    }
+    
 
 }

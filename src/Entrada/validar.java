@@ -1,5 +1,6 @@
 package Entrada;
 
+import Cliente_Vendedor.Cliente;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -143,7 +144,23 @@ public class validar {
             }
         } while (true);
     }
-
+    
+ 
+    
+    
+    public static String validarTipoVendedor(String tipo){
+        Scanner sc = new Scanner(System.in);
+        String string1="junior";
+        String string2="semi senior";
+        String string3="senior";
+        while(!string1.contentEquals(tipo)|| !string2.contentEquals(tipo)|| !string3.contentEquals(tipo)){
+            System.out.print("Ingrese tipo de vendedor(Junior/Semi Senior/Senior): ");
+            tipo=sc.nextLine().toLowerCase();
+        }
+        return tipo;
+    }
+    
+    
     /**
      * Función que valida que el usuario
      * ingrese un número de teléfono válido.
