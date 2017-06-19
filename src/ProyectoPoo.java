@@ -1,9 +1,6 @@
 import Cliente_Vendedor.Cliente;
 import Cliente_Vendedor.Vendedor;
-import Vehículos.Automovil;
-import Vehículos.Camion;
-import Vehículos.Camioneta;
-import Vehículos.Moto;
+import Vehículos.*;
 
 import java.util.ArrayList;
 
@@ -59,7 +56,7 @@ public class ProyectoPoo {
                         case "otros":
                             // Terminar el menu de motos, falta 3 atributos
                             ArrayList<Object> otros = UI.ingresoDatos();
-                            Automovil o = UI.imprimirMenuIngresoAutomovil(otros);
+                            Otro o = UI.imprimirMenuIngresoOtros(otros);
                             p_automotor.ingresarVehículo(o);
                             break;
                         default:
@@ -76,7 +73,11 @@ public class ProyectoPoo {
                     vendedores.add(v);
                     break;
                 case 4:
-                    UI.Venta(p_automotor.getPatio(), cliente, vendedores);// TODO: Añadir la salida de autos del patio
+                    if (p_automotor.getPatio().isEmpty()) {
+                        System.out.println("No hay vehiculos en el patio...");
+                        break;
+                    }
+                    UI.Venta(p_automotor.getPatio(), cliente, vendedores);
                     break;
                 case 5:
                     Reportes.reporteVehiculosEnPatio(p_automotor);

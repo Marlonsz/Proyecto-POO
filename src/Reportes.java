@@ -18,10 +18,13 @@ public class Reportes {
      */
     public static void reporteVehiculosEnPatio(Patio p) {
         ArrayList<Vehiculo> vehiculos = p.getPatio();
+        if (vehiculos.isEmpty()) {
+            System.out.println("No hay vehículos en el Patio.");
+            return;
+        }
         Collections.sort(vehiculos,comparatorvh);
         for (Vehiculo vh : vehiculos) {
-            System.out.print(vh.toString());
-
+            System.out.println(vh.toString());
         }
 
     }
@@ -30,7 +33,7 @@ public class Reportes {
      * @param vendedores  Lista con los vendedores de la concesionaria
      */
     public static void reporteVendedores(ArrayList<Vendedor> vendedores){
-        for(Vendedor v:vendedores){
+        for (Vendedor v : vendedores) {
             System.out.println(v.toString());           
         }
     }
@@ -60,16 +63,21 @@ public static Comparator<Vehiculo> comparatorvh = new Comparator<Vehiculo>() {
         return resultado;
     }
 };
+
 /**
  * Crea el reporte de clientes ordenado por pais y ciudad mostrando los vehiculos comprados
  * @param clientes Arreglo de clientes que tiene la concesionaria
  */
-public static void reporteClientes(ArrayList<Cliente> clientes){
-        Collections.sort(clientes,comparator);
-        for (Cliente c : clientes) {
-            System.out.print(c.toString());
 
-        }
+public static void reporteClientes(ArrayList<Cliente> clientes){
+    if (clientes.isEmpty()) {
+        System.out.println("No hay clientes registrados...");
+        return;
     }
+    clientes.sort(comparator);
+    for (Cliente c : clientes) {
+        System.out.print(c.toString());
+    }
+}
 
 }

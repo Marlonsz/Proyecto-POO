@@ -4,7 +4,6 @@ import Entrada.validar;
 import Vehículos.*;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -38,7 +37,6 @@ public class UI {
      *  menú de ingreso vehicular.
      */
     public static void imprimirMenuIngresoVehicular() {
-        // TODO: Hacer que identifique el tipo de vehículo.
         System.out.printf((Color.FONDO_AMARILLO)+"Bienvenido al ingreso de vehículos%n" +
                 (Color.AZUL)+"Tenga listo los siguientes datos:%n" +
                 (Color.MAGENTA)+"- Tipo de automóvil%n" +
@@ -310,20 +308,20 @@ public static void compare(ArrayList<Vehiculo> vehiculos ) {
         */
         Scanner scanner = new Scanner(System.in);
         System.out.print("Ingrese nombre: ");
-        String nombre=scanner.nextLine();
+        String nombre = scanner.nextLine();
         System.out.print("Ingrese apellido: ");
-        String apellido=scanner.nextLine();
+        String apellido = scanner.nextLine();
         System.out.print("Ingrese numero de id: ");
-        String iD=scanner.nextLine();
+        String iD = scanner.nextLine();
         System.out.print("Ingrese telefono: ");
-        String tel=scanner.nextLine();
-        while(validar.validarTelefono(tel)==false){
+        String tel = scanner.nextLine();
+        while (!validar.esTelefonoValido(tel)) {
             System.out.print("Ingrese telefono: ");
-            tel=scanner.nextLine();
+            tel = scanner.nextLine();
         }   
         System.out.print("Ingrese tipo de vendedor(Junior/Semi Senior/Senior): ");
-        String tipo=scanner.nextLine().toLowerCase();
-        tipo=validar.validarTipoVendedor(tipo);
+        String tipo = scanner.nextLine().toLowerCase();
+        tipo = validar.validarTipoVendedor(tipo);
         return new Vendedor(nombre, apellido,iD,tel,tipo);
     }
     
@@ -344,9 +342,6 @@ public static void compare(ArrayList<Vehiculo> vehiculos ) {
         */
         System.out.println("Ingrese el numero de identificación del cliente:");
         String numid=scanner.nextLine();
-        if(cliente.isEmpty()){
-            cliente.add(ingresarCliente(vehiculo));
-        }
         for(int i=0;i<cliente.size();i++){
             if(cliente.get(i).getNumid().contains(numid)){
                 c=i;
@@ -365,9 +360,6 @@ public static void compare(ArrayList<Vehiculo> vehiculos ) {
         */
         System.out.println("Ingrese el numero de identificación del Vendedor:");
         String numid2=scanner.nextLine();
-        if(vendedor.isEmpty()){
-            vendedor.add(ingresarVendedor());
-        }
         for(int i=0;i<vendedor.size();i++){
             if(vendedor.get(i).getNumid().contains(numid2)){
                 v=i;

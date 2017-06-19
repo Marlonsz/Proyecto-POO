@@ -1,11 +1,8 @@
 package Entrada;
 
-import Cliente_Vendedor.Cliente;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Scanner;
+import java.util.*;
 import java.util.regex.Pattern;
 
 /**
@@ -150,10 +147,8 @@ public class validar {
     
     public static String validarTipoVendedor(String tipo){
         Scanner sc = new Scanner(System.in);
-        String string1="junior";
-        String string2="semi senior";
-        String string3="senior";
-        while(!string1.contentEquals(tipo)|| !string2.contentEquals(tipo)|| !string3.contentEquals(tipo)){
+        List<String> lista_rangos = Arrays.asList("junior", "semi senior", "senior");
+        while (!lista_rangos.contains(tipo)) {
             System.out.print("Ingrese tipo de vendedor(Junior/Semi Senior/Senior): ");
             tipo=sc.nextLine().toLowerCase();
         }
@@ -168,7 +163,7 @@ public class validar {
      * @param tel número de teléfono.
      * @return verdadero si es válido, falso de otra manera.
      */
-    public static boolean validarTelefono(String tel) {
+    public static boolean esTelefonoValido(String tel) {
         final Pattern patt = Pattern.compile("[0-9]+");
         return patt.matcher(tel).matches();
     }

@@ -14,8 +14,12 @@ import java.util.Date;
 public class Otro extends Vehiculo {
     /*Poner 3 atributos unicos de otros tipos de vehiculos*/
 
-    public Otro(String marca, String modelo, Date fechafab, String numchasis, String nummotor, String propietario, double cilindraje, double precsug, Date fing, Date fvent) {
-        super(marca, modelo, fechafab, numchasis, nummotor, propietario, cilindraje, precsug, fing, fvent);
+    public Otro(String marca, String modelo, Date fechafab, String numchasis,
+                String nummotor, String propietario,
+                double cilindraje, double precsug, Date fing,
+                Date fvent) {
+        super(marca, modelo, fechafab, numchasis, nummotor, propietario,
+                cilindraje, precsug, fing, fvent);
     }
     
 }
