@@ -5,13 +5,15 @@
  */
 package Vehículos;
 
+
+import java.util.Comparator;
 import java.util.Date;
 
 /**
  *
  * @author Marlon
  */
-public class Vehiculo {
+public class Vehiculo implements Comparable<Vehiculo> {
     private String marca;
     private String modelo;
     private Date fechafab;
@@ -19,11 +21,12 @@ public class Vehiculo {
     private String nummotor;
     private String propietario;
     private double cilindraje;
-    private double precsug;
-    private Date fing;
-    private Date fvent;
+    private double precio_sugerido;
+    private Date fecha_ingreso;
+    private Date fecha_venta;
 
-    public Vehiculo(String marca, String modelo, Date fechafab, String numchasis, String nummotor, String propietario, double cilindraje, double precsug, Date fing, Date fvent) {
+
+    public Vehiculo(String marca, String modelo, Date fechafab, String numchasis, String nummotor, String propietario, double cilindraje, double precio_sugerido, Date fecha_ingreso, Date fecha_venta) {
         this.marca = marca;
         this.modelo = modelo;
         this.fechafab = fechafab;
@@ -31,9 +34,9 @@ public class Vehiculo {
         this.nummotor = nummotor;
         this.propietario = propietario;
         this.cilindraje = cilindraje;
-        this.precsug = precsug;
-        this.fing = fing;
-        this.fvent = fvent;
+        this.precio_sugerido = precio_sugerido;
+        this.fecha_ingreso = fecha_ingreso;
+        this.fecha_venta = fecha_venta;
     }
 
     public String getMarca() {
@@ -92,28 +95,47 @@ public class Vehiculo {
         this.cilindraje = cilindraje;
     }
 
-    public double getPrecsug() {
-        return precsug;
+    public double getPrecio_sugerido() {
+        return precio_sugerido;
     }
 
-    public void setPrecsug(double precsug) {
-        this.precsug = precsug;
+    public void setPrecio_sugerido(double precio_sugerido) {
+        this.precio_sugerido = precio_sugerido;
     }
 
-    public Date getFing() {
-        return fing;
+    public Date getFecha_ingreso() {
+        return fecha_ingreso;
     }
 
-    public void setFing(Date fing) {
-        this.fing = fing;
+    public void setFecha_ingreso(Date fecha_ingreso) {
+        this.fecha_ingreso = fecha_ingreso;
     }
 
-    public Date getFvent() {
-        return fvent;
+    public Date getFecha_venta() {
+        return fecha_venta;
     }
 
-    public void setFvent(Date fvent) {
-        this.fvent = fvent;
+    public void setFecha_venta(Date fecha_venta) {
+        this.fecha_venta = fecha_venta;
+    }
+
+    @Override
+    public int compareTo(Vehiculo vh) {
+        /*
+        Comparación por defecto: Comparar por fecha para ordenar.
+         */
+        return (this.fecha_ingreso.compareTo(vh.fecha_ingreso));
+    }
+    @Override
+    public String toString() {
+        return String.format("%s %s", this.marca, this.modelo) +
+                String.format("Fecha de fabricación: %s", this.fechafab.toString()) +
+                String.format("Datos del vehículo: %nNúmero de chasis %s%nNúmero del motor: %s%n", this.numchasis, this.nummotor) +
+                String.format("Propietario: %s%n", (this.propietario.equals("") ? "Parque automotor" : this.propietario)) +
+                String.format("Cilindraje %.2fL%n", this.cilindraje) +
+                String.format("Precio sugerido: %.2f%n", this.precio_sugerido) +
+                String.format("Fecha de ingreso: %s%n", this.fecha_ingreso.toString()) +
+                String.format("Fecha de venta: %s%n", (this.fecha_venta == null) ? "No se ha vendido" : this.fecha_venta.toString());
     }
     
     

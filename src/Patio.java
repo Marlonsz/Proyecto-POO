@@ -13,6 +13,14 @@ public class Patio {
         this.capacidad = capacidad;
     }
 
+    public ArrayList<Vehiculo> getPatio() {
+        return patio;
+    }
+
+    public void setPatio(ArrayList<Vehiculo> patio) {
+        this.patio = patio;
+    }
+
     public boolean ingresarVehículo(Vehiculo vh) {
         if (this.patio.size() < this.capacidad) {
             this.patio.add(vh);

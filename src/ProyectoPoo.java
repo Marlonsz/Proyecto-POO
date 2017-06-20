@@ -1,7 +1,6 @@
-import Vehículos.Automovil;
-import Vehículos.Camiones;
-import Vehículos.Camionetas;
-import Vehículos.Motos;
+import Cliente_Vendedor.Cliente;
+import Cliente_Vendedor.Vendedor;
+import Vehículos.*;
 
 import java.util.ArrayList;
 
@@ -10,20 +9,23 @@ import java.util.ArrayList;
  * Created by piero512 on 02/06/17.
  */
 public class ProyectoPoo {
+    
+    
     public static void main(String[] args) {
         //TODO: Terminar el main.
         Patio p_automotor = new Patio(15);
-
-        System.out.println("----------------------------------------------------");
-        int respuesta = UI.imprimirMenuPrincipal();
-        System.out.println(respuesta);
+        ArrayList<Cliente> cliente = new ArrayList<>();
+        ArrayList<Vendedor> vendedores = new ArrayList<>();
         ArrayList<String> tipos = new ArrayList<>();
         tipos.add("automovil");
         tipos.add("camiones");
         tipos.add("camionetas");
         tipos.add("otros");
-
-        while (respuesta!=8){
+        boolean continuar = true;
+        while (continuar) {
+            System.out.println("----------------------------------------------------");
+            int respuesta = UI.imprimirMenuPrincipal();
+            System.out.println(respuesta);
             switch (respuesta) {
                 case 1:
                     UI.imprimirMenuIngresoVehicular();
@@ -36,25 +38,25 @@ public class ProyectoPoo {
                             break;
                         case "camiones":
                             ArrayList<Object> dc = UI.ingresoDatos();
-                            Camiones ca = UI.imprimirMenuIngresoCamiones(dc);
+                            Camion ca = UI.imprimirMenuIngresoCamion(dc);
                             p_automotor.ingresarVehículo(ca);
                             break;
 
                         case "motos":
                             ArrayList<Object> mo = UI.ingresoDatos();
-                            Motos m = UI.imprimirMenuIngresoMotos(mo);
+                            Moto m = UI.imprimirMenuIngresoMotos(mo);
                             p_automotor.ingresarVehículo(m);
                             break;
                         case "camionetas":
                             // Terminar el menu de camionetas, falta 2 atributos
                             ArrayList<Object> cam = UI.ingresoDatos();
-                            Camionetas c = UI.imprimirMenuIngresoCamionetas(cam);
+                            Camioneta c = UI.imprimirMenuIngresoCamioneta(cam);
                             p_automotor.ingresarVehículo(c);
                             break;
                         case "otros":
                             // Terminar el menu de motos, falta 3 atributos
                             ArrayList<Object> otros = UI.ingresoDatos();
-                            Automovil o = UI.imprimirMenuIngresoAutomovil(otros);
+                            Otro o = UI.imprimirMenuIngresoOtros(otros);
                             p_automotor.ingresarVehículo(o);
                             break;
                         default:
@@ -63,38 +65,38 @@ public class ProyectoPoo {
                     }
                     break;
                 case 2:
-                    UI.ingresarCliente();
+                    Cliente c=UI.ingresarCliente(p_automotor.getPatio());
+                    cliente.add(c);
                     break;
                 case 3:
-                    UI.ingresarVendedor();
+                    Vendedor v=UI.ingresarVendedor();
+                    vendedores.add(v);
                     break;
                 case 4:
-                    // TODO: Añadir la salida de autos del patio
+                    if (p_automotor.getPatio().isEmpty()) {
+                        System.out.println("No hay vehiculos en el patio...");
+                        break;
+                    }
+                    UI.Venta(p_automotor.getPatio(), cliente, vendedores);
                     break;
                 case 5:
-                    /* TODO: Reporte de vehículos actualmente en el patio, 
-                    ordenados por fecha de ingreso 
-                    */
+                    Reportes.reporteVehiculosEnPatio(p_automotor);
                     break;
                 case 6:
-                    /* TODO:Reporte de clientes y los vehículos que han 
-                    adquirido en el caso de que hayan comprado alguno, 
-                    el mismo que se debe ordenar por país, ciudad del cliente 
-                    */
+                    Reportes.reporteClientes(cliente);
                     break;
                 case 7:
-                    // TODO: Reporte de vendedores y los vehículos que han vendido. 
+                    Reportes.reporteVendedores(vendedores);// TODO: Reporte de vendedores y los vehículos que han vendido. 
                     break;
                 case 8:
                     System.out.println("Gracias por confiar en nuestro sistema!");
-                    System.exit(0);
+                    continuar = false;
+                    break;
                 default:
                     // En el imposible caso de que salga un número diferente (que ya validamos) sabremos porqué.
                     throw new IllegalArgumentException();
             }
             System.out.println("-----------------------------------------------------------------------");
-            respuesta = UI.imprimirMenuPrincipal();
-
         }
     }
 }

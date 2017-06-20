@@ -5,61 +5,55 @@
  */
 package Cliente_Vendedor;
 
+import Vehículos.Vehiculo;
+
+import java.util.ArrayList;
+
 /**
  *
  * @author Marlon
  */
-public class Vendedor {
-    private String nombre;
-    private String apellidos;
-    private String numid;
-    private String tel;
+public class Vendedor extends Usuario {
+    /**
+     * Clase para agrupar datos del vendedor
+     */
     private String tipo;
     private int totventas;
-    private int totcomision;
+    private double totcomision;
+    private ArrayList<Vehiculo> vh_vendidos = new ArrayList<>();
 
-    public Vendedor(String nombre, String apellidos, String numid, String tel, String tipo, int totventas, int totcomision) {
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.numid = numid;
-        this.tel = tel;
+    /**
+     * Constructor por defecto de Vendedor.
+     * Permite inicializarlo con todos los datos necesarios
+     * @param nombre del vendedor
+     * @param apellidos del vendedor
+     * @param numid # de cédula del vendedor
+     * @param tel # de teléfono del vendedor
+     * @param tipo del vendedor: Junior, Master, Amateur, etc.
+     * @param totventas total de ventas del vendedor
+     * @param totcomision total de comisiones del vendedor.
+     */
+    public Vendedor(String nombre, String apellidos, String numid, String tel, String tipo, int totventas, double totcomision) {
+        super(nombre, numid, tel, apellidos);
         this.tipo = tipo;
-        this.totventas = totventas;
-        this.totcomision = totcomision;
+        this.totventas = 0;
+        this.totcomision = 0;
     }
 
-    public String getNombre() {
-        return nombre;
+    public Vendedor(String tipo, String nombre, String numid, String tel, String apellidos) {
+        super(nombre, numid, tel, apellidos);
+        this.tipo = tipo;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public ArrayList<Vehiculo> getVh_vendidos() {
+        return vh_vendidos;
     }
 
-    public String getApellidos() {
-        return apellidos;
+    public void setVh_vendidos(ArrayList<Vehiculo> vh_vendidos) {
+        this.vh_vendidos = vh_vendidos;
     }
 
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
-    }
-
-    public String getNumid() {
-        return numid;
-    }
-
-    public void setNumid(String numid) {
-        this.numid = numid;
-    }
-
-    public String getTel() {
-        return tel;
-    }
-
-    public void setTel(String tel) {
-        this.tel = tel;
-    }
-
+    
     public String getTipo() {
         return tipo;
     }
@@ -76,14 +70,27 @@ public class Vendedor {
         this.totventas = totventas;
     }
 
-    public int getTotcomision() {
+    public double getTotcomision() {
         return totcomision;
     }
 
-    public void setTotcomision(int totcomision) {
+    public void setTotcomision(double totcomision) {
         this.totcomision = totcomision;
     }
 
-    
+    /**
+     * Método toString del vendedor
+     * @return Datos del vendedor en una String.
+     */
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Vehículos vendidos: ");
+        for (Vehiculo vh : this.vh_vendidos) {
+            sb.append(vh.toString());
+            sb.append("\n");
+        }
+        return "Vendedor: \n" + super.toString() + sb.toString();
+    }
     
 }
