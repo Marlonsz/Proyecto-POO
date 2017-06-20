@@ -57,12 +57,10 @@ public class validar {
     }
 
     public static Date validarFecha(String mensaje) {
-        /*CORREGIR a pesar de que se ponga fecha correcta sale fecha no válida
-        hasta la segunda vez que se la ingresa*/
         Date f_retornar = new Date();
         Scanner entrada = new Scanner(System.in);
         SimpleDateFormat df = new SimpleDateFormat("dd-mm-yy");
-        System.out.print(mensaje);
+        System.out.println(mensaje);
         String input = entrada.nextLine();
         if (input.equals("")) {
             return f_retornar;
