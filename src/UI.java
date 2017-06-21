@@ -107,7 +107,7 @@ public class UI {
         System.out.print("Ingrese el propietario: ");
         String propietario = scanner.nextLine();
         datos.add(propietario);
-        int cilindraje = (int) validar.ingresarValorNumerico(0, "Ingrese el cilindraje (en cm3): ");
+        double cilindraje =  validar.ingresarValorNumerico(0, "Ingrese el cilindraje (en cm3): ");
         datos.add(cilindraje);
         double precio_sugerido = validar.ingresarValorNumerico(0, "Ingrese el valor sugerido: ");
         datos.add(precio_sugerido);
