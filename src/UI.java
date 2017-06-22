@@ -130,8 +130,7 @@ public class UI {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Ingrese tipo de automovil: ");
         String tipo = scanner.nextLine();
-        System.out.print("Ingrese número de puertas: ");
-        int numPuertas = (int) validar.ingresarValorNumerico(0, "Ingrese numero de puertas");
+        int numPuertas = (int) validar.ingresarValorNumerico(0, "Ingrese numero de puertas: ");
         System.out.print("Ingrese 1 si tiene cámara de parqueo, o 0 en caso contrario: ");
         int camP;
         camP = validar.capturarNumeroRango(0, 1);
@@ -267,29 +266,30 @@ public static void compare(ArrayList<Vehiculo> vehiculos ) {
         String numVivi=scanner.nextLine();
         //Mejoren el ingreso de la fecha salen 2 mensajes seguidos, tambien el de ingresar valor numerico mejorar
         //implementar como regresar al menu en caso que no haya vehiculos ya que lo que he hecho es terminar el programa si no hay
-        System.out.print("Ingrese fecha de ingreso: ");
-        Date fecha_ingreso = validar.validarFecha("Ingrese fecha correcta ");
+
+        Date fecha_ingreso = validar.validarFecha("Ingrese fecha de ingreso: ");
         /*Pregunta el numero de vehiculos que ha comprado*/
-        System.out.print("Ingrese el numero de vehiculos vendidos ");
-        String nveh = scanner.nextLine();
-        int num=validar.ingresarValorNumerico(nveh);
+        int num=validar.ingresarValorNumerico("Ingrese el numero de vehiculos vendidos ");
+        //cCORREGIR, A PESAR DE HABER VEHICULOS DISPONIBLES, SALES QUE EL PATIO ESTA VACIO.
         if(vehiculos.isEmpty()){
             System.out.println("No hay vehículos en el patio en este momento");
-            System.exit(0);
+
         }
         /* muestra un listado con la descripcion de cada vehiculo y permite escoger una opcion*/
         // Pide que ingrese el numero del vehículo que compra y este se añade a s registro de vehículos comprados
-        for(int i = 0; i<num; i++){
-            System.out.print("Ingrese el numero del "+(i+1)+ " vehiculo vendido: ");
-            for(int j = 0; j<disponibles.size(); j++){
-                System.out.println((j+1)+disponibles.get(j).toString());
+        else{
+            for(int i = 0; i<num; i++){
+                System.out.print("Ingrese el numero del "+(i+1)+ " vehiculo vendido: ");
+                for(int j = 0; j<disponibles.size(); j++){
+                    System.out.println((j+1)+disponibles.get(j).toString());
+                }
+                String op=scanner.nextLine();
+                int op2=validar.ingresarValorNumerico(op);
+                System.out.println("");
+                vehiculos.add(disponibles.get(op2-1));
+
+
             }
-            String op=scanner.nextLine();
-            int op2=validar.ingresarValorNumerico(op);
-            System.out.println("");
-            vehiculos.add(disponibles.get(op2-1));
-
-
         }
 
         return new Cliente(nombre,apellido,iD,tel,pais,ciudad,calle,sector,numVivi, fecha_ingreso, vehiculos);

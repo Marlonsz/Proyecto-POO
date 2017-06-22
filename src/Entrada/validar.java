@@ -27,9 +27,9 @@ public class validar {
                 input.next(); // this is important!
             }
             numero = input.nextInt();
-            if (!(numero > n_inicio && numero <= n_final))
+            if (!(numero >= n_inicio && numero <= n_final))
                 System.out.println("El número no está entre las opciones!");
-        } while (!(numero > n_inicio && numero <= n_final));
+        } while (!(numero >= n_inicio && numero <= n_final));
         return numero;
     }
 
