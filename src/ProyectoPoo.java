@@ -29,34 +29,34 @@ public class ProyectoPoo {
             switch (respuesta) {
                 case 1:
                     UI.imprimirMenuIngresoVehicular();
-                    String tipo = UI.ingresarTipoVehiculo(tipos);
+                    String tipo = VehiculoBuilder.ingresarTipoVehiculo(tipos);
                     switch (tipo) {
                         case "automovil":
-                            ArrayList<Object> datos_comunes = UI.ingresoDatos();
-                            Automovil vh = UI.imprimirMenuIngresoAutomovil(datos_comunes);
+                            ArrayList<Object> datos_comunes = VehiculoBuilder.ingresoDatos();
+                            Automovil vh = VehiculoBuilder.imprimirMenuIngresoAutomovil(datos_comunes);
                             p_automotor.ingresarVehículo(vh);
                             break;
                         case "camiones":
-                            ArrayList<Object> dc = UI.ingresoDatos();
-                            Camion ca = UI.imprimirMenuIngresoCamion(dc);
+                            ArrayList<Object> dc = VehiculoBuilder.ingresoDatos();
+                            Camion ca = VehiculoBuilder.imprimirMenuIngresoCamion(dc);
                             p_automotor.ingresarVehículo(ca);
                             break;
 
                         case "motos":
-                            ArrayList<Object> mo = UI.ingresoDatos();
-                            Moto m = UI.imprimirMenuIngresoMotos(mo);
+                            ArrayList<Object> mo = VehiculoBuilder.ingresoDatos();
+                            Moto m = VehiculoBuilder.imprimirMenuIngresoMotos(mo);
                             p_automotor.ingresarVehículo(m);
                             break;
                         case "camionetas":
                             // Terminar el menu de camionetas, falta 2 atributos
-                            ArrayList<Object> cam = UI.ingresoDatos();
-                            Camioneta c = UI.imprimirMenuIngresoCamioneta(cam);
+                            ArrayList<Object> cam = VehiculoBuilder.ingresoDatos();
+                            Camioneta c = VehiculoBuilder.imprimirMenuIngresoCamioneta(cam);
                             p_automotor.ingresarVehículo(c);
                             break;
                         case "otros":
                             // Terminar el menu de motos, falta 3 atributos
-                            ArrayList<Object> otros = UI.ingresoDatos();
-                            Otro o = UI.imprimirMenuIngresoOtros(otros);
+                            ArrayList<Object> otros = VehiculoBuilder.ingresoDatos();
+                            Otro o = VehiculoBuilder.imprimirMenuIngresoOtros(otros);
                             p_automotor.ingresarVehículo(o);
                             break;
                         default:
