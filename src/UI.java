@@ -98,10 +98,10 @@ public class UI {
         datos.add(modelo);
         Date f_fabricacion = validar.validarFecha("Ingrese la fecha de fabricación (en dd-mm-yy): ");
         datos.add(f_fabricacion);
-        System.out.print("Ingrese el n\u00famero de chasis: ");
+        System.out.print("Ingrese el numero de chasis: ");
         String n_chasis = scanner.nextLine();
         datos.add(n_chasis);
-        System.out.print("Ingrese el n\u00famero del motor: ");
+        System.out.print("Ingrese el numero del motor: ");
         String n_motor = scanner.nextLine();
         datos.add(n_motor);
         System.out.print("Ingrese el propietario: ");
@@ -111,8 +111,7 @@ public class UI {
         datos.add(cilindraje);
         double precio_sugerido = validar.ingresarValorNumerico(0, "Ingrese el valor sugerido: ");
         datos.add(precio_sugerido);
-        System.out.println("Ingrese fecha de ingreso (vacio si hoy): ");
-        Date fecha_ingreso = validar.validarFecha("Ingrese fecha de ingreso: ");
+        Date fecha_ingreso = validar.validarFecha("Ingrese fecha de ingreso (vacio si hoy): ");
         datos.add(fecha_ingreso);
         // Aquí se usa null, ya que si se ingresa el automovil, es por que no se ha vendido aún.
         Date fecha_venta = null;
@@ -130,7 +129,7 @@ public class UI {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Ingrese tipo de automovil: ");
         String tipo = scanner.nextLine();
-        int numPuertas = (int) validar.ingresarValorNumerico(0, "Ingrese numero de puertas: ");
+        int numPuertas = (int) validar.ingresarValorNumerico(0, "Ingrese numero de puertas");
         System.out.print("Ingrese 1 si tiene cámara de parqueo, o 0 en caso contrario: ");
         int camP;
         camP = validar.capturarNumeroRango(0, 1);
@@ -266,27 +265,28 @@ public static void compare(ArrayList<Vehiculo> vehiculos ) {
         String numVivi=scanner.nextLine();
         //Mejoren el ingreso de la fecha salen 2 mensajes seguidos, tambien el de ingresar valor numerico mejorar
         //implementar como regresar al menu en caso que no haya vehiculos ya que lo que he hecho es terminar el programa si no hay
-
-        Date fecha_ingreso = validar.validarFecha("Ingrese fecha de ingreso: ");
+        System.out.print("Ingrese fecha de ingreso: ");
+        Date fecha_ingreso = validar.validarFecha("Ingrese fecha correcta ");
         /*Pregunta el numero de vehiculos que ha comprado*/
+        
         int num=validar.ingresarValorNumerico("Ingrese el numero de vehiculos vendidos ");
-        //cCORREGIR, A PESAR DE HABER VEHICULOS DISPONIBLES, SALES QUE EL PATIO ESTA VACIO.
-        if(vehiculos.isEmpty()){
+        if(disponibles.size()==0){
             System.out.println("No hay vehículos en el patio en este momento");
-
+            
+            
         }
         /* muestra un listado con la descripcion de cada vehiculo y permite escoger una opcion*/
         // Pide que ingrese el numero del vehículo que compra y este se añade a s registro de vehículos comprados
         else{
             for(int i = 0; i<num; i++){
-                System.out.print("Ingrese el numero del "+(i+1)+ " vehiculo vendido: ");
-                for(int j = 0; j<disponibles.size(); j++){
-                    System.out.println((j+1)+disponibles.get(j).toString());
-                }
-                String op=scanner.nextLine();
-                int op2=validar.ingresarValorNumerico(op);
-                System.out.println("");
-                vehiculos.add(disponibles.get(op2-1));
+            System.out.print("Ingrese el numero del "+(i+1)+ " vehiculo vendido: ");
+            for(int j = 0; j<disponibles.size(); j++){
+                System.out.println((j+1)+disponibles.get(j).toString());
+            }
+            String op=scanner.nextLine();
+            int op2=validar.ingresarValorNumerico(op);
+            System.out.println("");
+            vehiculos.add(disponibles.get(op2-1));
 
 
             }

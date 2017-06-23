@@ -167,4 +167,5 @@ public class validar {
         final Pattern patt = Pattern.compile("[0-9]+");
         return patt.matcher(tel).matches();
     }
+    
 }
