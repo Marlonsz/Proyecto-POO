@@ -128,11 +128,11 @@ public class Vehiculo implements Comparable<Vehiculo> {
     }
     @Override
     public String toString() {
-        return String.format("%s %s", this.marca, this.modelo) +"%n"+
+        return String.format("Marca: %s%n Modelo: %s%n", this.marca, this.modelo)+
                 String.format("Fecha de fabricación: %s", this.fechafab.toString()) +
-                String.format("%nDatos del vehículo: %nNúmero de chasis %s%nNúmero del motor: %s%n", this.numchasis, this.nummotor) +
+                String.format("%nDatos del vehículo: %nNúmero de chasis: %s%nNúmero del motor: %s%n", this.numchasis, this.nummotor) +
                 String.format("Propietario: %s%n", (this.propietario.equals("") ? "Parque automotor" : this.propietario)) +
-                String.format("Cilindraje %.2fL%n", this.cilindraje) +
+                String.format("Cilindraje: %.2fL%n", this.cilindraje) +
                 String.format("Precio sugerido: %.2f%n", this.precio_sugerido) +
                 String.format("Fecha de ingreso: %s%n", this.fecha_ingreso.toString()) +
                 String.format("Fecha de venta: %s%n", (this.fecha_venta == null) ? "No se ha vendido" : this.fecha_venta.toString());

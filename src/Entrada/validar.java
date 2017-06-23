@@ -51,7 +51,7 @@ public class validar {
                 entrada.next();
             }
             valor = entrada.nextInt();
-        } while (!(valor > n_inicio && valor < n_final));
+        } while (!(valor >= n_inicio && valor <= n_final));
         return valor;
     }
 

@@ -35,7 +35,6 @@ public class ProyectoPoo {
                             ArrayList<Object> datos_comunes = UI.ingresoDatos();
                             Automovil vh = UI.imprimirMenuIngresoAutomovil(datos_comunes);
                             p_automotor.ingresarVehículo(vh);
-                            p_automotor.getPatio().add(vh);
                             break;
                         case "camiones":
                             ArrayList<Object> dc = UI.ingresoDatos();
