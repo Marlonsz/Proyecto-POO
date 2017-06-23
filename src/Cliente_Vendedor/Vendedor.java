@@ -90,7 +90,8 @@ public class Vendedor extends Usuario {
             sb.append(vh.toString());
             sb.append("\n");
         }
-        return "Vendedor: \n" + super.toString() + sb.toString();
+        
+        return "Vendedor: \n" + super.toString() + sb.toString()+" Total de ventas: "+this.totventas+" Total de comisión: "+this.totcomision;
     }
     
 }
