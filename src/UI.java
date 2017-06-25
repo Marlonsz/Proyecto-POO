@@ -93,11 +93,7 @@ public class UI {
         System.out.print("Ingrese numero de id: ");
         String iD=scanner.nextLine();
         System.out.print("Ingrese telefono: ");
-        String tel=scanner.nextLine();
-        while (!validar.esTelefonoValido(tel)) {
-            System.out.print("Ingrese telefono: ");
-            tel = scanner.nextLine();
-        }
+        String tel = validar.ingresarTelefonoValido();
         System.out.print("Ingrese pais: ");
         String pais=scanner.nextLine();
         System.out.print("Ingrese ciudad: ");
@@ -158,11 +154,7 @@ public class UI {
         System.out.print("Ingrese numero de id: ");
         String iD = scanner.nextLine();
         System.out.print("Ingrese telefono: ");
-        String tel = scanner.nextLine();
-        while (!validar.esTelefonoValido(tel)) {
-            System.out.print("Ingrese telefono: ");
-            tel = scanner.nextLine();
-        }
+        String tel = validar.ingresarTelefonoValido();
         System.out.print("Ingrese tipo de vendedor(Junior/Semi Senior/Senior): ");
         String tipo = scanner.nextLine().toLowerCase();
         tipo = validar.validarTipoVendedor(tipo);

@@ -160,12 +160,18 @@ public class validar {
      * Función que valida que el usuario
      * ingrese un número de teléfono válido.
      *
-     * @param tel número de teléfono.
      * @return verdadero si es válido, falso de otra manera.
      */
-    public static boolean esTelefonoValido(String tel) {
+    public static String ingresarTelefonoValido() {
         final Pattern patt = Pattern.compile("[0-9]+");
-        return patt.matcher(tel).matches();
+        Scanner scanner = new Scanner(System.in);
+        String tel;
+        tel = scanner.nextLine();
+        while (!patt.matcher(tel).matches()) {
+            System.out.println("Ingrese un número de teléfono correcto!");
+            tel = scanner.nextLine();
+        }
+        return tel;
     }
-    
+
 }

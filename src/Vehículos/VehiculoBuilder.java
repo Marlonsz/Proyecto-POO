@@ -25,14 +25,13 @@ public class VehiculoBuilder {
         System.out.println("Ingrese el tipo de vehículo de los siguientes tipos:");
         System.out.println("Automovil,Moto, Camioneta, Camion u Otro");
         String cadena;
-        boolean terminar;
+        boolean terminar = false;
         do {
             cadena = sc.nextLine();
             if (tipos.contains(cadena.toLowerCase()))
                 terminar = true;
             else {
                 System.out.println("Ingrese un tipo de vehiculo!");
-                terminar = false;
             }
         } while (!terminar);
         return cadena.toLowerCase();
@@ -91,7 +90,7 @@ public class VehiculoBuilder {
         int numPuertas = (int) validar.ingresarValorNumerico(0, "Ingrese numero de puertas");
         System.out.print("Ingrese 1 si tiene cámara de parqueo, o 0 en caso contrario: ");
         int camP;
-        camP = validar.capturarNumeroRango(0, 1);
+        camP = (int) validar.ingresarValorNumerico(0, 1, "Ingrese 1 si tiene cámara, 0 si no.");
         boolean camParqueo;
         camParqueo = camP == 1;
         return new Automovil(tipo, numPuertas, camParqueo, (String) datos.get(0), (String) datos.get(1), (Date) datos.get(2),
