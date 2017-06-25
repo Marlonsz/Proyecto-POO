@@ -1,4 +1,5 @@
 import Cliente_Vendedor.Cliente;
+import Cliente_Vendedor.UsuarioBuilder;
 import Cliente_Vendedor.Vendedor;
 import Vehículos.*;
 
@@ -9,8 +10,7 @@ import java.util.ArrayList;
  * Created by piero512 on 02/06/17.
  */
 public class ProyectoPoo {
-    
-    
+
     public static void main(String[] args) {
         //TODO: Terminar el main.
         Patio p_automotor = new Patio(15);
@@ -65,11 +65,11 @@ public class ProyectoPoo {
                     }
                     break;
                 case 2:
-                    Cliente c=UI.ingresarCliente(p_automotor.getPatio());
+                    Cliente c = UsuarioBuilder.ingresarCliente();
                     cliente.add(c);
                     break;
                 case 3:
-                    Vendedor v=UI.ingresarVendedor();
+                    Vendedor v = UsuarioBuilder.ingresarVendedor();
                     vendedores.add(v);
                     break;
                 case 4:
@@ -86,7 +86,8 @@ public class ProyectoPoo {
                     Reportes.reporteClientes(cliente);
                     break;
                 case 7:
-                    Reportes.reporteVendedores(vendedores);// TODO: Reporte de vendedores y los vehículos que han vendido. 
+                    // TODO: Reporte de vendedores y los vehículos que han vendido.
+                    Reportes.reporteVendedores(vendedores);
                     break;
                 case 8:
                     System.out.println("Gracias por confiar en nuestro sistema!");

@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * Created by piero512 on 02/06/17.
  */
 public class Patio {
-    private ArrayList<Vehiculo> patio = new ArrayList<>();
+    private final ArrayList<Vehiculo> patio = new ArrayList<>();
     private final int capacidad;
 
     public Patio(int capacidad) {
@@ -15,10 +15,6 @@ public class Patio {
 
     public ArrayList<Vehiculo> getPatio() {
         return patio;
-    }
-
-    public void setPatio(ArrayList<Vehiculo> patio) {
-        this.patio = patio;
     }
 
     public boolean ingresarVehículo(Vehiculo vh) {
@@ -31,13 +27,4 @@ public class Patio {
         }
     }
 
-    public boolean retirarVehiculo(String marca, String modelo, String nuevo_propietario) {
-        for (Vehiculo vh : this.patio) {
-            if (vh.getMarca().equals(marca) && vh.getModelo().equals(modelo)) {
-                vh.setPropietario(nuevo_propietario);
-                return true;
-            }
-        }
-        return false;
-    }
 }

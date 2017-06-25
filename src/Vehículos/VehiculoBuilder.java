@@ -105,12 +105,11 @@ public class VehiculoBuilder {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Ingrese numero de ruedas: ");
         int numruedas = (int) validar.ingresarValorNumerico(0, "Ingrese el numero de ruedas");
-        System.out.print("Ingrese la capacidad de carga: ");
-        double capCarga = scanner.nextInt();
-        System.out.print("Ingrese 1 si tiene rastreo satelital, o 0 en caso contrario ");
-        int rastreo = validar.capturarNumeroRango(0, 1);
-        boolean rasSat;
-        rasSat = rastreo == 1;
+        double capCarga = validar.ingresarValorNumerico(0, "Ingrese la capacidad de carga: ");
+        int rastreo;
+        rastreo = (int) validar.ingresarValorNumerico(0, 1,
+                "Ingrese 1 si tiene rastreo satelital, o 0 en caso contrario ");
+        boolean rasSat = rastreo == 1;
         return new Camion(numruedas, capCarga, rasSat, (String) datos.get(0), (String) datos.get(1), (Date) datos.get(2),
                 (String) datos.get(3), (String) datos.get(4), (String) datos.get(5), (double) datos.get(6), (double) datos.get(7), (Date) datos.get(8), (Date) datos.get(9));
     }

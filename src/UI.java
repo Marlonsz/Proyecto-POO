@@ -1,4 +1,5 @@
 import Cliente_Vendedor.Cliente;
+import Cliente_Vendedor.UsuarioBuilder;
 import Cliente_Vendedor.Vendedor;
 import Entrada.validar;
 import Vehículos.*;
@@ -78,90 +79,6 @@ public class UI {
     }
 
     /**
-     * Función que se encarga de inicializar una instancia de Cliente
-     *
-     * @param disponibles
-     */
-    public static Cliente ingresarCliente(ArrayList<Vehiculo> disponibles) {
-        //MEJORAR--AGREGAR AL CLIENTE LOS VEHICULOS QUE HA ADQUIRIDO
-        ArrayList<Vehiculo> vehiculos = new ArrayList<>();
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Ingrese nombre: ");
-        String nombre=scanner.nextLine();
-        System.out.print("Ingrese apellido: ");
-        String apellido=scanner.nextLine();
-        System.out.print("Ingrese numero de id: ");
-        String iD=scanner.nextLine();
-        System.out.print("Ingrese telefono: ");
-        String tel = validar.ingresarTelefonoValido();
-        System.out.print("Ingrese pais: ");
-        String pais=scanner.nextLine();
-        System.out.print("Ingrese ciudad: ");
-        String ciudad=scanner.nextLine();
-        System.out.print("Ingrese calle: ");
-        String calle=scanner.nextLine();
-        System.out.print("Ingrese sector: ");
-        String sector=scanner.nextLine();
-        System.out.print("Ingrese numero de vivienda: ");
-        String numVivi=scanner.nextLine();
-        //Mejoren el ingreso de la fecha salen 2 mensajes seguidos, tambien el de ingresar valor numerico mejorar
-        //implementar como regresar al menu en caso que no haya vehiculos ya que lo que he hecho es terminar el programa si no hay
-        Date fecha_ingreso = validar.validarFecha("Ingrese fecha de ingreso: ");
-        /*Pregunta el numero de vehiculos que ha comprado*/
-
-        int num=(int)validar.ingresarValorNumerico(0,disponibles.size(),"Ingrese el numero de vehiculos vendidos: ");
-        if(disponibles.size()==0){
-            System.out.println("No hay vehículos en el patio en este momento");
-
-
-        }
-        /* muestra un listado con la descripcion de cada vehiculo y permite escoger una opcion*/
-        // Pide que ingrese el numero del vehículo que compra y este se añade a s registro de vehículos comprados
-        else{
-            for(int i = 0; i<num; i++){
-                System.out.println("-------------------------------------------------------");
-                System.out.println("Ingrese el numero del "+(i+1)+ " vehiculo vendido: ");
-                for(int j = 0; j<disponibles.size(); j++){
-                    System.out.println((j+1)+") "+disponibles.get(j).toString());
-                }
-                int op2=validar.ingresarValorNumerico("Ingrese el número del vehículo adquirido: ");
-                System.out.println("");
-                vehiculos.add(disponibles.get(op2-1));
-
-
-            }
-        }
-
-        return new Cliente(nombre,apellido,iD,tel,pais,ciudad,calle,sector,numVivi, fecha_ingreso, vehiculos);
-    }
-
-    /**
-     * Funcion que se encarga de inicializar un vendedor con los
-     * datos ingresados por el usuario.
-     *
-     * @return un objeto vendedor.
-     */
-    public static Vendedor ingresarVendedor() {
-        /*
-        MEJORAR--AGREGAR TIPO DE VENDEDOR, CALCULO DE LA COMISIÓN
-        TODO: Validar.
-        */
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Ingrese nombre: ");
-        String nombre = scanner.nextLine();
-        System.out.print("Ingrese apellido: ");
-        String apellido = scanner.nextLine();
-        System.out.print("Ingrese numero de id: ");
-        String iD = scanner.nextLine();
-        System.out.print("Ingrese telefono: ");
-        String tel = validar.ingresarTelefonoValido();
-        System.out.print("Ingrese tipo de vendedor(Junior/Semi Senior/Senior): ");
-        String tipo = scanner.nextLine().toLowerCase();
-        tipo = validar.validarTipoVendedor(tipo);
-        return new Vendedor(nombre, apellido,iD,tel,tipo);
-    }
-
-    /**
      * Realiza la venta del vehículo al cliente llevando un registro y modificando los
      * datos de cada uno
      * @param vehiculo Arreglo con los vehículos que hay en el patio
@@ -186,7 +103,7 @@ public class UI {
             else if((!cliente.get(i).getNumid().contains(numid))
                     && (i==cliente.size()-1)){
                 System.out.println("-----------Ingrese un nuevo cliente---------");
-                cliente.add(ingresarCliente(vehiculo));
+                cliente.add(UsuarioBuilder.ingresarCliente());
                 c=cliente.size()-1;
                 break;
 
@@ -204,7 +121,7 @@ public class UI {
             }
             else if((!vendedor.get(i).getNumid().contains(numid2))
                     && (i==vendedor.size()-1)){
-                vendedor.add(ingresarVendedor());
+                vendedor.add(UsuarioBuilder.ingresarVendedor());
                 v=vendedor.size()-1;
                 break;
 
