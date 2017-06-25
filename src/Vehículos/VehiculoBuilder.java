@@ -88,11 +88,8 @@ public class VehiculoBuilder {
         System.out.print("Ingrese tipo de automovil: ");
         String tipo = scanner.nextLine();
         int numPuertas = (int) validar.ingresarValorNumerico(0, "Ingrese numero de puertas");
-        System.out.print("Ingrese 1 si tiene cámara de parqueo, o 0 en caso contrario: ");
-        int camP;
-        camP = (int) validar.ingresarValorNumerico(0, 1, "Ingrese 1 si tiene cámara, 0 si no.");
-        boolean camParqueo;
-        camParqueo = camP == 1;
+        int camP = (int) validar.ingresarValorNumerico(0, 1, "Ingrese 1 si tiene cámara, 0 si no.");
+        boolean camParqueo = camP == 1;
         return new Automovil(tipo, numPuertas, camParqueo, (String) datos.get(0), (String) datos.get(1), (Date) datos.get(2),
                 (String) datos.get(3), (String) datos.get(4), (String) datos.get(5), (double) datos.get(6), (double) datos.get(7), (Date) datos.get(8), (Date) datos.get(9));
     }
