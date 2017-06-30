@@ -2,9 +2,12 @@ package Entrada;
 
 import Cliente_Vendedor.Cliente;
 import Cliente_Vendedor.Vendedor;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Scanner;
 import java.util.regex.Pattern;
 
 /**
@@ -204,25 +207,32 @@ public class validar {
         String id_cliente=id.next();
         System.out.println(mensaje2);
         String id_vendedor=id.next();
+        act.ensureCapacity(3);
         boolean existe_cliente=false;
         boolean existe_vendedor=false;
         for(int i=0;i<clientes.size();i++){
             if(id_cliente.equals(clientes.get(i).getNumid())){
                 existe_cliente= true;
-                act.add(clientes.get(i));
+                act.add(0, clientes.get(i));
             }
+        }
+        if (!existe_cliente) {
+            act.add(0, null);
         }
         for(int i=0;i<vendedores.size();i++){
             if(id_vendedor.equals(vendedores.get(i).getNumid())){
                 existe_vendedor= true;
-                act.add(vendedores.get(i));
+                act.add(1, vendedores.get(i));
             }
         }
-        if(existe_cliente==true && existe_vendedor==true){
-            act.add(true);
+        if (!existe_vendedor) {
+            act.add(1, null);
+        }
+        if (existe_cliente && existe_vendedor) {
+            act.add(2, true);
         }
         else{
-            act.add(false);
+            act.add(2, false);
         }
         return act;
     }

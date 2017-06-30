@@ -80,7 +80,7 @@ public class VehiculoBuilder {
      * Función que se encarga de pedirle al usuario datos adicionales, que
      * sólo serían apropiados en Automóviles.
      *
-     * @param datos Recibe el {@link ArrayList<Vehiculo>} de Objetos de la función ingresoDatos
+     * @param datos Recibe el ArrayList de Vehiculo de Objetos de la función ingresoDatos
      * @return un objeto Automóvil correctamente inicializado.
      */
     public static Automovil imprimirMenuIngresoAutomovil(ArrayList<Object> datos) {
@@ -98,7 +98,7 @@ public class VehiculoBuilder {
      * Función que se encarga de pedirle al usuario datos adicionales, que
      * sólo serían apropiados en Camion.
      *
-     * @param datos Recibe el {@link ArrayList<Vehiculo>} de Objetos de la función ingresoDatos
+     * @param datos Recibe el ArrayList de Vehiculo de Objetos de la función ingresoDatos
      * @return un objeto Camion correctamente inicializado.
      */
     public static Camion imprimirMenuIngresoCamion(ArrayList<Object> datos) {
@@ -118,7 +118,7 @@ public class VehiculoBuilder {
      * Función que se encarga de pedirle al usuario datos adicionales, que
      * sólo serían relevantes en una camioneta
      *
-     * @param datos Recibe el {@link ArrayList<Vehiculo>} de Objetos de la función ingresoDatos
+     * @param datos Recibe el ArrayList de Vehiculo de Objetos de la función ingresoDatos
      * @return un objeto Camioneta correctamente inicializado.
      */
     public static Camioneta imprimirMenuIngresoCamioneta(ArrayList<Object> datos) {
@@ -135,7 +135,7 @@ public class VehiculoBuilder {
      * Función que se encarga de pedirle al usuario datos adicionales, que
      * sólo serían relevantes en una Moto
      *
-     * @param datos Recibe el {@link ArrayList<Vehiculo>} de Objetos de la función ingresoDatos
+     * @param datos Recibe el ArrayList de Vehiculo de Objetos de la función ingresoDatos
      * @return un objeto Moto correctamente inicializado.
      */
     public static Moto imprimirMenuIngresoMotos(ArrayList<Object> datos) {
@@ -155,7 +155,7 @@ public class VehiculoBuilder {
      * Función que se encarga de pedirle al usuario datos adicionales, que
      * sólo serían relevantes en otro tipo de vehículos.
      *
-     * @param datos Recibe el {@link ArrayList<Vehiculo>} de Objetos de la función ingresoDatos
+     * @param datos Recibe el ArrayList de Vehiculo de Objetos de la función ingresoDatos
      * @return un objeto Otro correctamente inicializado.
      */
     public static Otro imprimirMenuIngresoOtros(ArrayList<Object> datos) {

@@ -83,7 +83,7 @@ public class ProyectoPoo {
                         break;
                     }
                     ArrayList<Object> actores=validar.ValidarActores(cliente, vendedores,"Ingrese el ide del cliente: ","Ingrese el id del vendedor: ");
-                    if(actores.get(2).equals(false)){
+                    if ((boolean) actores.get(2)) {
                         System.out.println("id de cliente/vendedor no existe, por favor registre al cliente/vendedor antes de realizar la venta");
                         break;
                     }
