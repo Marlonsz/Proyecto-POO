@@ -1,5 +1,7 @@
 package Entrada;
 
+import Cliente_Vendedor.Cliente;
+import Cliente_Vendedor.Vendedor;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -144,15 +146,27 @@ public class validar {
     
  
     
-    
-    public static String validarTipoVendedor(String tipo){
+    /**
+     * Valida el tipo de vendedor que se ingresa entre los posibles
+     * @param tipo Arreglo de strings donde estan los tipos de vendedores
+     * posibles
+     * @return String con el tipo de vendedor
+     */
+    public static String validarTipoVendedor(ArrayList<String> tipo){
         Scanner sc = new Scanner(System.in);
-        List<String> lista_rangos = Arrays.asList("junior", "semi senior", "senior");
-        while (!lista_rangos.contains(tipo)) {
-            System.out.print("Ingrese tipo de vendedor(Junior/Semi Senior/Senior): ");
-            tipo=sc.nextLine().toLowerCase();
-        }
-        return tipo;
+        System.out.println("Ingrese el tipo de vendedor de los siguientes tipos:");
+        System.out.println("Senior, semi senior y Senior");
+        String cadena;
+        boolean terminar = false;
+        do {
+            cadena = sc.nextLine();
+            if (tipo.contains(cadena.toLowerCase()))
+                terminar = true;
+            else {
+                System.out.println("Ingrese un tipo de vendedor!");
+            }
+        } while (!terminar);
+        return cadena.toLowerCase();
     }
     
     
@@ -173,5 +187,46 @@ public class validar {
         }
         return tel;
     }
+    
+    /**
+     * Metodo que verifica si el id del cliente y vendedor se encuentran en el registro
+     * @param clientes registro de clientes del sistema
+     * @param vendedores registro de vendedores del sistema
+     * @param mensaje1 mensaje para ingresar el cliente
+     * @param mensaje2 mensaje para ingresar el vendedor
+     * @return Arreglo que contiene el cliente, el vendedor y un booleano como verificacion
+     * de que se encuentran en el sistema
+     */
+    public static ArrayList<Object> ValidarActores(ArrayList<Cliente> clientes,ArrayList<Vendedor> vendedores,String mensaje1,String mensaje2){
+        ArrayList<Object> act=new ArrayList<>();
+        Scanner id=new Scanner(System.in);
+        System.out.println(mensaje1);
+        String id_cliente=id.next();
+        System.out.println(mensaje2);
+        String id_vendedor=id.next();
+        boolean existe_cliente=false;
+        boolean existe_vendedor=false;
+        for(int i=0;i<clientes.size();i++){
+            if(id_cliente.equals(clientes.get(i).getNumid())){
+                existe_cliente= true;
+                act.add(clientes.get(i));
+            }
+        }
+        for(int i=0;i<vendedores.size();i++){
+            if(id_vendedor.equals(vendedores.get(i).getNumid())){
+                existe_vendedor= true;
+                act.add(vendedores.get(i));
+            }
+        }
+        if(existe_cliente==true && existe_vendedor==true){
+            act.add(true);
+        }
+        else{
+            act.add(false);
+        }
+        return act;
+    }
+    
+    
 
 }

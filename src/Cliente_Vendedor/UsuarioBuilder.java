@@ -41,8 +41,6 @@ public class UsuarioBuilder {
         String sector = scanner.nextLine();
         System.out.print("Ingrese numero de vivienda: ");
         String numVivi = scanner.nextLine();
-        //Mejoren el ingreso de la fecha salen 2 mensajes seguidos, tambien el de ingresar valor numerico mejorar
-        //implementar como regresar al menu en caso que no haya vehiculos ya que lo que he hecho es terminar el programa si no hay
         Date fecha_ingreso = validar.validarFecha("Ingrese fecha de ingreso: ");
         return new Cliente(nombre, apellido, iD, tel, pais, ciudad, calle, sector, numVivi, fecha_ingreso, vehiculos);
     }
@@ -53,7 +51,8 @@ public class UsuarioBuilder {
      *
      * @return un objeto vendedor.
      */
-    public static Vendedor ingresarVendedor() {
+    public static Vendedor ingresarVendedor(ArrayList<String> tipo) {
+        
         /*
         MEJORAR--AGREGAR TIPO DE VENDEDOR, CALCULO DE LA COMISIÓN
         TODO: Validar.
@@ -67,9 +66,7 @@ public class UsuarioBuilder {
         String iD = scanner.nextLine();
         System.out.print("Ingrese telefono: ");
         String tel = validar.ingresarTelefonoValido();
-        System.out.print("Ingrese tipo de vendedor(Junior/Semi Senior/Senior): ");
-        String tipo = scanner.nextLine().toLowerCase();
-        tipo = validar.validarTipoVendedor(tipo);
-        return new Vendedor(nombre, apellido, iD, tel, tipo);
+        String tipo_vendedor =validar.validarTipoVendedor(tipo);
+        return new Vendedor(nombre, apellido, iD, tel, tipo_vendedor);
     }
 }

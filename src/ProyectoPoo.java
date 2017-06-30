@@ -1,6 +1,7 @@
 import Cliente_Vendedor.Cliente;
 import Cliente_Vendedor.UsuarioBuilder;
 import Cliente_Vendedor.Vendedor;
+import Entrada.validar;
 import Vehículos.*;
 
 import java.util.ArrayList;
@@ -17,10 +18,14 @@ public class ProyectoPoo {
         ArrayList<Cliente> cliente = new ArrayList<>();
         ArrayList<Vendedor> vendedores = new ArrayList<>();
         ArrayList<String> tipos = new ArrayList<>();
+        ArrayList<String> clases=new ArrayList<>();
         tipos.add("automovil");
         tipos.add("camiones");
         tipos.add("camionetas");
         tipos.add("otros");
+        clases.add("junior");
+        clases.add("semi senior");
+        clases.add("senior");
         boolean continuar = true;
         while (continuar) {
             System.out.println("----------------------------------------------------");
@@ -69,7 +74,7 @@ public class ProyectoPoo {
                     cliente.add(c);
                     break;
                 case 3:
-                    Vendedor v = UsuarioBuilder.ingresarVendedor();
+                    Vendedor v = UsuarioBuilder.ingresarVendedor(clases);
                     vendedores.add(v);
                     break;
                 case 4:
@@ -77,7 +82,12 @@ public class ProyectoPoo {
                         System.out.println("No hay vehiculos en el patio...");
                         break;
                     }
-                    UI.Venta(p_automotor.getPatio(), cliente, vendedores);
+                    ArrayList<Object> actores=validar.ValidarActores(cliente, vendedores,"Ingrese el ide del cliente: ","Ingrese el id del vendedor: ");
+                    if(actores.get(2).equals(false)){
+                        System.out.println("id de cliente/vendedor no existe, por favor registre al cliente/vendedor antes de realizar la venta");
+                        break;
+                    }
+                    UI.Venta(p_automotor.getPatio(),(Cliente)actores.get(0),(Vendedor)actores.get(1));
                     break;
                 case 5:
                     Reportes.reporteVehiculosEnPatio(p_automotor);
