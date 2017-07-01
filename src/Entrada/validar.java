@@ -2,9 +2,12 @@ package Entrada;
 
 import Cliente_Vendedor.Cliente;
 import Cliente_Vendedor.Vendedor;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Scanner;
 import java.util.regex.Pattern;
 
 /**
@@ -155,7 +158,7 @@ public class validar {
     public static String validarTipoVendedor(ArrayList<String> tipo){
         Scanner sc = new Scanner(System.in);
         System.out.println("Ingrese el tipo de vendedor de los siguientes tipos:");
-        System.out.println("Senior, semi senior y Senior");
+        System.out.println("Junior, semi senior y Senior");
         String cadena;
         boolean terminar = false;
         do {
@@ -202,37 +205,35 @@ public class validar {
         Scanner id=new Scanner(System.in);
         System.out.println(mensaje1);
         String id_cliente=id.next();
-        System.out.println(mensaje2);
-        String id_vendedor=id.next();
-        act.add(0,0);
-        act.add(1,0);
+        act.ensureCapacity(3);
         boolean existe_cliente=false;
         boolean existe_vendedor=false;
         for(int i=0;i<clientes.size();i++){
             if(id_cliente.equals(clientes.get(i).getNumid())){
                 existe_cliente= true;
-                act.set(0,clientes.get(i));
+                act.add(0, clientes.get(i));
             }
-
         }
+        if (!existe_cliente) {
+            act.add(0, null);
+        }
+        System.out.println(mensaje2);
+        String id_vendedor=id.next();
         for(int i=0;i<vendedores.size();i++){
             if(id_vendedor.equals(vendedores.get(i).getNumid())){
                 existe_vendedor= true;
-                act.set(1,vendedores.get(i));
+                act.add(1, vendedores.get(i));
             }
-
         }
-
-        if(existe_cliente==true && existe_vendedor==true){
-            act.add(2,true);
+        if (!existe_vendedor) {
+            act.add(1, null);
+        }
+        if (existe_cliente && existe_vendedor) {
+            act.add(2, true);
         }
         else{
-            act.add(2,false);
+            act.add(2, false);
         }
-        System.out.println(act);
-        return act;
+        return act;         
     }
-    
-    
-
 }

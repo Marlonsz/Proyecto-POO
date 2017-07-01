@@ -87,14 +87,14 @@ public class UI {
      */
     public static void Venta(ArrayList<Vehiculo> vehiculo,Cliente cliente,Vendedor vendedor){      
         Vehiculo vh;
-        int num=validar.ingresarValorNumerico("Ingrese el numero de vehículos a vender:");
+        int num=(int)validar.ingresarValorNumerico(1,vehiculo.size(),"Ingrese el numero de vehículos a vender:");
             for(int i = 0; i<num; i++) {
                 System.out.println("-------------------------------------------------------");
                 System.out.println("Ingrese el numero del " + (i + 1) + " vehiculo vendido: ");
                 for (int j = 0; j < vehiculo.size(); j++) {
                     System.out.println((j + 1) + ") " + vehiculo.get(j).toString());
                 }
-                int op2 = validar.ingresarValorNumerico("Ingrese el número del vehículo adquirido: ");
+                int op2 =(int) validar.ingresarValorNumerico(1,vehiculo.size(),"Ingrese el número del vehículo adquirido: ");
                 System.out.println("");
                 cliente.getVh_adq().add(vehiculo.get(op2 - 1));
                 vh = vehiculo.get(op2 - 1);
@@ -122,19 +122,19 @@ public class UI {
      */
     public static double PrecioFinal(Vehiculo vh){
         if(vh instanceof Automovil){
-            return (vh.getPrecio_sugerido()*(5/100))+500+vh.getPrecio_sugerido();
+            return (vh.getPrecio_sugerido()*0.05)+500+vh.getPrecio_sugerido();
         }
         else if(vh instanceof Camioneta){
-            return (vh.getPrecio_sugerido()*(10/100))+700+vh.getPrecio_sugerido();
+            return (vh.getPrecio_sugerido()*0.1)+700+vh.getPrecio_sugerido();
         }
         else if(vh instanceof Camion){
-            return (vh.getPrecio_sugerido()*(15/100))+850+vh.getPrecio_sugerido();
+            return (vh.getPrecio_sugerido()*0.15)+850+vh.getPrecio_sugerido();
         }
         else if(vh instanceof Moto){
-            return (vh.getPrecio_sugerido()*(2.5/100))+200+vh.getPrecio_sugerido();
+            return (vh.getPrecio_sugerido()*0.025)+200+vh.getPrecio_sugerido();
         }
         else {
-            return (vh.getPrecio_sugerido()*(2.5/100))+250+vh.getPrecio_sugerido();
+            return (vh.getPrecio_sugerido()*0.025)+250+vh.getPrecio_sugerido();
         }
         
     }
@@ -146,14 +146,14 @@ public class UI {
      * @return La comisión que recibe el vendedor por dicha venta
      */
     public static double comisiones(double preciofinal,Vendedor v){
-        if("junior".contentEquals(v.getTipo())){
-            return preciofinal*(3/100);
+        if("junior".equals(v.getTipo())){
+            return preciofinal*0.03;
         }
-        else if("semi senior".contentEquals(v.getTipo())){
-            return preciofinal*(6/100);
+        else if("semi senior".equals(v.getTipo())){
+            return preciofinal*0.06;
         }
         else{
-            return preciofinal*(10/100);
+            return preciofinal*0.1;
         }
     }
 }
