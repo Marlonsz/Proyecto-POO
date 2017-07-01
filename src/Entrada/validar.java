@@ -158,7 +158,7 @@ public class validar {
     public static String validarTipoVendedor(ArrayList<String> tipo){
         Scanner sc = new Scanner(System.in);
         System.out.println("Ingrese el tipo de vendedor de los siguientes tipos:");
-        System.out.println("Senior, semi senior y Senior");
+        System.out.println("Junior, semi senior y Senior");
         String cadena;
         boolean terminar = false;
         do {
@@ -205,8 +205,6 @@ public class validar {
         Scanner id=new Scanner(System.in);
         System.out.println(mensaje1);
         String id_cliente=id.next();
-        System.out.println(mensaje2);
-        String id_vendedor=id.next();
         act.ensureCapacity(3);
         boolean existe_cliente=false;
         boolean existe_vendedor=false;
@@ -219,6 +217,8 @@ public class validar {
         if (!existe_cliente) {
             act.add(0, null);
         }
+        System.out.println(mensaje2);
+        String id_vendedor=id.next();
         for(int i=0;i<vendedores.size();i++){
             if(id_vendedor.equals(vendedores.get(i).getNumid())){
                 existe_vendedor= true;
@@ -234,9 +234,6 @@ public class validar {
         else{
             act.add(2, false);
         }
-        return act;
+        return act;         
     }
-    
-    
-
 }

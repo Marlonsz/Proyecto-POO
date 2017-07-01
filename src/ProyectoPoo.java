@@ -22,6 +22,7 @@ public class ProyectoPoo {
         tipos.add("automovil");
         tipos.add("camiones");
         tipos.add("camionetas");
+        tipos.add("moto");
         tipos.add("otros");
         clases.add("junior");
         clases.add("semi senior");
@@ -47,7 +48,7 @@ public class ProyectoPoo {
                             p_automotor.ingresarVehículo(ca);
                             break;
 
-                        case "motos":
+                        case "moto":
                             ArrayList<Object> mo = VehiculoBuilder.ingresoDatos();
                             Moto m = VehiculoBuilder.imprimirMenuIngresoMotos(mo);
                             p_automotor.ingresarVehículo(m);
@@ -83,7 +84,7 @@ public class ProyectoPoo {
                         break;
                     }
                     ArrayList<Object> actores=validar.ValidarActores(cliente, vendedores,"Ingrese el ide del cliente: ","Ingrese el id del vendedor: ");
-                    if ((boolean) actores.get(2)) {
+                    if (!(boolean) actores.get(2)) {
                         System.out.println("id de cliente/vendedor no existe, por favor registre al cliente/vendedor antes de realizar la venta");
                         break;
                     }

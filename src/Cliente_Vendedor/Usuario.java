@@ -9,7 +9,7 @@ public abstract class Usuario {
     protected String numid;
     protected String tel;
 
-    public Usuario(String nombre, String numid, String tel, String apellidos) {
+    public Usuario(String nombre,String apellidos, String numid, String tel) {
         this.nombre = nombre;
         this.numid = numid;
         this.tel = tel;

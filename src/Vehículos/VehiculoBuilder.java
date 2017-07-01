@@ -23,7 +23,7 @@ public class VehiculoBuilder {
          */
         Scanner sc = new Scanner(System.in);
         System.out.println("Ingrese el tipo de vehículo de los siguientes tipos:");
-        System.out.println("Automovil,Moto, Camioneta, Camion u Otro");
+        System.out.println("Automovil,Moto, Camionetas, Camiones u Otros");
         String cadena;
         boolean terminar = false;
         do {
@@ -103,7 +103,6 @@ public class VehiculoBuilder {
      */
     public static Camion imprimirMenuIngresoCamion(ArrayList<Object> datos) {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Ingrese numero de ruedas: ");
         int numruedas = (int) validar.ingresarValorNumerico(0, "Ingrese el numero de ruedas");
         double capCarga = validar.ingresarValorNumerico(0, "Ingrese la capacidad de carga: ");
         int rastreo;

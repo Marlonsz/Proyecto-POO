@@ -34,14 +34,14 @@ public class Vendedor extends Usuario {
      * @param totcomision total de comisiones del vendedor.
      */
     public Vendedor(String nombre, String apellidos, String numid, String tel, String tipo, int totventas, double totcomision) {
-        super(nombre, numid, tel, apellidos);
+        super(nombre,apellidos, numid, tel);
         this.tipo = tipo;
         this.totventas = 0;
         this.totcomision = 0;
     }
 
-    public Vendedor(String tipo, String nombre, String numid, String tel, String apellidos) {
-        super(nombre, numid, tel, apellidos);
+    public Vendedor(String nombre, String apellidos, String numid, String tel,String tipo) {
+        super(nombre,apellidos, numid, tel);
         this.tipo = tipo;
     }
 
@@ -91,7 +91,7 @@ public class Vendedor extends Usuario {
             sb.append("\n");
         }
         
-        return "Vendedor: \n" + super.toString() + sb.toString()+" Total de ventas: "+this.totventas+" Total de comisión: "+this.totcomision;
+        return "Vendedor: \n" + super.toString() + sb.toString()+"Tipo: "+this.tipo+" Total de ventas: "+this.totventas+" Total de comisión: "+this.totcomision;
     }
     
 }
