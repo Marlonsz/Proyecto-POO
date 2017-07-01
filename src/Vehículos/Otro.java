@@ -12,14 +12,22 @@ import java.util.Date;
  * @author Marlon
  */
 public class Otro extends Vehiculo {
-    /*Poner 3 atributos unicos de otros tipos de vehiculos*/
+    private int numEje;//número de ejes
 
-    public Otro(String marca, String modelo, Date fechafab, String numchasis,
+    public Otro(int numEje,String marca, String modelo, Date fechafab, String numchasis,
                 String nummotor, String propietario,
                 double cilindraje, double precsug, Date fing,
                 Date fvent) {
         super(marca, modelo, fechafab, numchasis, nummotor, propietario,
-                cilindraje, precsug, fing, fvent);
+        cilindraje, precsug, fing, fvent);
+        this.numEje=numEje;
     }
-    
+
+    public int getNumEje() {
+        return numEje;
+    }
+
+    public void setNumEje(int numEje) {
+        this.numEje = numEje;
+    }
 }

@@ -12,13 +12,16 @@ import java.util.Date;
  * @author Marlon
  */
 public class Camioneta extends Vehiculo {
-    /*Poner 2 atributos unicos de una camioneta*/
-    private String tipocabina;
+    private String tipocabina;//Regular, SuperCab, Cabina Doble
+    private String tipoTraccion;//trasera, delantera o integral
+    private boolean balde;
 
 
-    public Camioneta(String tipocabina, String marca, String modelo, Date fechafab, String numchasis, String nummotor, String propietario, double cilindraje, double precsug, Date fing, Date fvent) {
+    public Camioneta(String tipocabina, String tipoTraccion, boolean balde,String marca, String modelo, Date fechafab, String numchasis, String nummotor, String propietario, double cilindraje, double precsug, Date fing, Date fvent) {
         super(marca, modelo, fechafab, numchasis, nummotor, propietario, cilindraje, precsug, fing, fvent);
         this.tipocabina = tipocabina;
+        this.tipoTraccion=tipoTraccion;
+        this.balde=balde;
     }
 
     public String getTipocabina() {
@@ -28,5 +31,18 @@ public class Camioneta extends Vehiculo {
     public void setTipocabina(String tipocabina) {
         this.tipocabina = tipocabina;
     }
-    
+
+    public String getTipoTraccion() {return tipoTraccion;}
+
+    public void setTipoTraccion(String tipoTraccion) {
+        this.tipoTraccion = tipoTraccion;
+    }
+
+    public boolean isValde() {
+        return balde;
+    }
+
+    public void setValde(boolean valde) {
+        this.balde = valde;
+    }
 }

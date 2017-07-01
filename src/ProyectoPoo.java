@@ -54,13 +54,12 @@ public class ProyectoPoo {
                             p_automotor.ingresarVehículo(m);
                             break;
                         case "camionetas":
-                            // Terminar el menu de camionetas, falta 2 atributos
                             ArrayList<Object> cam = VehiculoBuilder.ingresoDatos();
                             Camioneta c = VehiculoBuilder.imprimirMenuIngresoCamioneta(cam);
                             p_automotor.ingresarVehículo(c);
                             break;
                         case "otros":
-                            // Terminar el menu de motos, falta 3 atributos
+                            // Terminar el menu de motos, falta 2 atributos
                             ArrayList<Object> otros = VehiculoBuilder.ingresoDatos();
                             Otro o = VehiculoBuilder.imprimirMenuIngresoOtros(otros);
                             p_automotor.ingresarVehículo(o);

@@ -107,7 +107,7 @@ public class VehiculoBuilder {
         double capCarga = validar.ingresarValorNumerico(0, "Ingrese la capacidad de carga: ");
         int rastreo;
         rastreo = (int) validar.ingresarValorNumerico(0, 1,
-                "Ingrese 1 si tiene rastreo satelital, o 0 en caso contrario ");
+                "Ingrese 1 si tiene rastreo satelital, o 0 en caso contrario:");
         boolean rasSat = rastreo == 1;
         return new Camion(numruedas, capCarga, rasSat, (String) datos.get(0), (String) datos.get(1), (Date) datos.get(2),
                 (String) datos.get(3), (String) datos.get(4), (String) datos.get(5), (double) datos.get(6), (double) datos.get(7), (Date) datos.get(8), (Date) datos.get(9));
@@ -121,11 +121,16 @@ public class VehiculoBuilder {
      * @return un objeto Camioneta correctamente inicializado.
      */
     public static Camioneta imprimirMenuIngresoCamioneta(ArrayList<Object> datos) {
-        //TERMINAR MENU Camioneta-FALTA LOS 2 ATRIBUTOS
         Scanner scanner = new Scanner(System.in);
         System.out.print("Ingrese tipo de cabina: ");
         String tipoCab = scanner.nextLine();
-        return new Camioneta(tipoCab, (String) datos.get(0), (String) datos.get(1), (Date) datos.get(2),
+        System.out.print("Ingrese tipo de Tracción: ");
+        String tipoTraccion = scanner.nextLine();
+        int bald;
+        bald = (int) validar.ingresarValorNumerico(0, 1,
+                "Ingrese 1 si tiene balde, o 0 en caso contrario: ");
+        boolean balde = bald == 1;
+        return new Camioneta(tipoCab, tipoTraccion,balde,(String) datos.get(0), (String) datos.get(1), (Date) datos.get(2),
                 (String) datos.get(3), (String) datos.get(4), (String) datos.get(5), (double) datos.get(6),
                 (double) datos.get(7), (Date) datos.get(8), (Date) datos.get(9));
     }
@@ -158,8 +163,10 @@ public class VehiculoBuilder {
      * @return un objeto Otro correctamente inicializado.
      */
     public static Otro imprimirMenuIngresoOtros(ArrayList<Object> datos) {
-        //TERMINAR MENU Otro -FALTA LOS 3 ATRIBUTOS
-        return new Otro((String) datos.get(0), (String) datos.get(1), (Date) datos.get(2),
+        //TERMINAR MENU Otro -FALTA LOS 2 ATRIBUTOS
+        Scanner sc = new Scanner(System.in);
+        int numEje = (int) validar.ingresarValorNumerico(0, "Ingrese el número de ejes: ");
+        return new Otro(numEje,(String) datos.get(0), (String) datos.get(1), (Date) datos.get(2),
                 (String) datos.get(3), (String) datos.get(4), (String) datos.get(5), (double) datos.get(6),
                 (double) datos.get(7), (Date) datos.get(8), (Date) datos.get(9));
     }
