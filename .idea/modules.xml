@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Proyecto-Poo.iml" filepath="$PROJECT_DIR$/Proyecto-Poo.iml" />
+      <module fileurl="file://C:\Users\Dayana2\Desktop\Proyecto-Poo-old\Proyecto-Poo.iml" filepath="C:\Users\Dayana2\Desktop\Proyecto-Poo-old\Proyecto-Poo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Proyecto-Poo-old.iml" filepath="$PROJECT_DIR$/Proyecto-Poo-old.iml" />
     </modules>
   </component>
 </project>

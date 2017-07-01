@@ -204,26 +204,32 @@ public class validar {
         String id_cliente=id.next();
         System.out.println(mensaje2);
         String id_vendedor=id.next();
+        act.add(0,0);
+        act.add(1,0);
         boolean existe_cliente=false;
         boolean existe_vendedor=false;
         for(int i=0;i<clientes.size();i++){
             if(id_cliente.equals(clientes.get(i).getNumid())){
                 existe_cliente= true;
-                act.add(clientes.get(i));
+                act.set(0,clientes.get(i));
             }
+
         }
         for(int i=0;i<vendedores.size();i++){
             if(id_vendedor.equals(vendedores.get(i).getNumid())){
                 existe_vendedor= true;
-                act.add(vendedores.get(i));
+                act.set(1,vendedores.get(i));
             }
+
         }
+
         if(existe_cliente==true && existe_vendedor==true){
-            act.add(true);
+            act.add(2,true);
         }
         else{
-            act.add(false);
+            act.add(2,false);
         }
+        System.out.println(act);
         return act;
     }
     

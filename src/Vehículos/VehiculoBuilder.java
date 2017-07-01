@@ -23,7 +23,7 @@ public class VehiculoBuilder {
          */
         Scanner sc = new Scanner(System.in);
         System.out.println("Ingrese el tipo de vehículo de los siguientes tipos:");
-        System.out.println("Automovil,Moto, Camioneta, Camion u Otro");
+        System.out.println("Automovil,Motos, Camionetas, Camiones u Otro");
         String cadena;
         boolean terminar = false;
         do {

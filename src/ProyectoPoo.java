@@ -22,6 +22,7 @@ public class ProyectoPoo {
         tipos.add("automovil");
         tipos.add("camiones");
         tipos.add("camionetas");
+        tipos.add("motos");
         tipos.add("otros");
         clases.add("junior");
         clases.add("semi senior");
