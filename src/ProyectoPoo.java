@@ -78,7 +78,7 @@ public class ProyectoPoo {
                     break;
                 case 4:
                     if (p_automotor.getPatio().isEmpty()) {
-                        System.out.println("No hay vehiculos en el patio...");
+                        System.out.println((Color.ROJO)+"No hay vehiculos en el patio...");
                         break;
                     }
                     ArrayList<Object> actores=validar.ValidarActores(cliente, vendedores,"Ingrese el ide del cliente: ","Ingrese el id del vendedor: ");

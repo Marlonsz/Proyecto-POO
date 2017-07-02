@@ -22,7 +22,7 @@ public class Patio {
             this.patio.add(vh);
             return true;
         } else {
-            System.out.println("El patio está lleno!");
+            System.out.println((Color.ROJO)+"El patio está lleno!");
             return false;
         }
     }

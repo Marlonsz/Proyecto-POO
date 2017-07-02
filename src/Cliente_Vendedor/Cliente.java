@@ -116,7 +116,7 @@ public class Cliente extends Usuario {
         sb.append(String.format("Ciudad: %s%n", this.ciudad));
         sb.append(String.format("Dirección: %s %s %s%n", this.sector, this.calle, this.numviv));
         sb.append(String.format("Fecha de ingreso: %s%n", this.fechaIng.toString()));
-        sb.append(String.format("Vehículos comprados: %n"));
+        sb.append(String.format("%nVehículos comprados: %n"));
         for (Vehiculo vh : this.vh_adq) {
             sb.append(vh.toString());
             sb.append("\n");

@@ -88,14 +88,14 @@ public class Vendedor extends Usuario {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Vehículos vendidos: ");
+        sb.append("\nVehículos vendidos: \n");
         for (Vehiculo vh : this.vh_vendidos) {
             sb.append(vh.toString());
             sb.append("\n");
         }
         
-        return "===========Vendedor=========== \n" + super.toString() + sb.toString()+"\nTipo: "+this.tipo
-                +"\nTotal de ventas: "+this.totventas+" \nTotal de comisión: "+this.totcomision;
+        return "===========Vendedor=========== \n" + super.toString()+"\nTipo: "+this.tipo
+                +"\nTotal de ventas: "+this.totventas+" \nTotal de comisión: "+this.totcomision + sb.toString();
     }
     
 }

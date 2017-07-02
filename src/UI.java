@@ -19,8 +19,8 @@ public class UI {
      */
     static int imprimirMenuPrincipal() {
 
-        System.out.printf((Color.FONDO_AMARILLO)+"Bienvenido al sistema del Patio Automotor%n" +
-                (Color.AZUL)+"Las siguientes opciones están disponibles%n" +
+        System.out.printf((Color.FONDO_CYAN)+"Bienvenido al sistema del Patio Automotor%n" +
+                (Color.FONDO_VERDE)+"Las siguientes opciones están disponibles%n" +
                 (Color.MAGENTA)+"1) Ingreso de vehículos al patio%n" +
                 (Color.MAGENTA)+"2) Ingreso de clientes%n" +
                 (Color.MAGENTA)+"3) Ingreso de vendedores%n" +
@@ -38,8 +38,8 @@ public class UI {
      *  menú de ingreso vehicular.
      */
     static void imprimirMenuIngresoVehicular() {
-        System.out.printf((Color.FONDO_AMARILLO)+"Bienvenido al ingreso de vehículos%n" +
-                (Color.AZUL)+"Tenga listo los siguientes datos:%n" +
+        System.out.printf((Color.FONDO_CYAN)+"Bienvenido al ingreso de vehículos%n" +
+                (Color.FONDO_VERDE)+"Tenga listo los siguientes datos:%n" +
                 (Color.MAGENTA)+"- Tipo de automóvil%n" +
                 (Color.MAGENTA)+"- Marca%n" +
                 (Color.MAGENTA)+"- Modelo%n" +
@@ -50,7 +50,7 @@ public class UI {
                 (Color.MAGENTA)+"- Cilindraje%n" +
                 (Color.MAGENTA)+"- Precio Sugerido%n" +
                 (Color.MAGENTA)+"- Fecha de ingreso%n" +
-                (Color.MAGENTA)+"- Fecha de venta%n");
+                (Color.MAGENTA)+"- Fecha de venta%n"+(Color.REINICIAR));
 
     }
 

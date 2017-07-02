@@ -52,7 +52,7 @@ public class UsuarioBuilder {
      * @return un objeto vendedor.
      */
     public static Vendedor ingresarVendedor(ArrayList<String> tipo) {
-        
+
         /*
         MEJORAR--AGREGAR TIPO DE VENDEDOR, CALCULO DE LA COMISIÓN
         TODO: Validar.

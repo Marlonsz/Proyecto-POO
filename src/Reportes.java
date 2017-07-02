@@ -19,7 +19,7 @@ public class Reportes {
     public static void reporteVehiculosEnPatio(Patio p) {
         ArrayList<Vehiculo> vehiculos = p.getPatio();
         if (vehiculos.isEmpty()) {
-            System.out.println("No hay vehículos en el Patio.");
+            System.out.println((Color.ROJO)+"No hay vehículos en el Patio.");
             return;
         }
         Collections.sort(vehiculos,comparatorvh);
@@ -33,6 +33,10 @@ public class Reportes {
      * @param vendedores  Lista con los vendedores de la concesionaria
      */
     public static void reporteVendedores(ArrayList<Vendedor> vendedores){
+        if (vendedores.isEmpty()) {
+            System.out.println((Color.ROJO)+"No hay vendedores registrados...");
+            return;
+        }
         for (Vendedor v : vendedores) {
             System.out.println(v.toString());           
         }
@@ -71,7 +75,7 @@ public static Comparator<Vehiculo> comparatorvh = new Comparator<Vehiculo>() {
 
 public static void reporteClientes(ArrayList<Cliente> clientes){
     if (clientes.isEmpty()) {
-        System.out.println("No hay clientes registrados...");
+        System.out.println((Color.ROJO)+"No hay clientes registrados...");
         return;
     }
     clientes.sort(comparator);
