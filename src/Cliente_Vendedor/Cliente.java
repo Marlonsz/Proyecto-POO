@@ -4,9 +4,7 @@
  * and open the template in the editor.
  */
 package Cliente_Vendedor;
-
 import Vehículos.Vehiculo;
-
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -123,7 +121,7 @@ public class Cliente extends Usuario {
             sb.append(vh.toString());
             sb.append("\n");
         }
-        return "Cliente: \n" + super.toString() + sb.toString();
+        return "============Cliente========== \n" + super.toString() + sb.toString();
     }
     
 }

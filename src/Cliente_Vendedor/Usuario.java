@@ -51,7 +51,7 @@ public abstract class Usuario {
     @Override
     public String toString() {
         return String.format("Nombre: %s %s%n", this.nombre, this.apellidos) +
-                String.format("Número de identificación : %s", this.numid) +
-                String.format("Teléfono: %s", this.tel);
+                String.format("Número de identificación : %s%n", this.numid) +
+                String.format("Teléfono: %s%n", this.tel);
     }
 }

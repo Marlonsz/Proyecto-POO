@@ -31,7 +31,7 @@ public class VehiculoBuilder {
             if (tipos.contains(cadena.toLowerCase()))
                 terminar = true;
             else {
-                System.out.println("Ingrese un tipo de vehiculo!");
+                System.out.println("Ingrese un tipo de vehiculo!:");
             }
         } while (!terminar);
         return cadena.toLowerCase();
@@ -87,8 +87,8 @@ public class VehiculoBuilder {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Ingrese tipo de automovil: ");
         String tipo = scanner.nextLine();
-        int numPuertas = (int) validar.ingresarValorNumerico(0, "Ingrese numero de puertas");
-        int camP = (int) validar.ingresarValorNumerico(0, 1, "Ingrese 1 si tiene cámara, 0 si no.");
+        int numPuertas = (int) validar.ingresarValorNumerico(0, "Ingrese numero de puertas: ");
+        int camP = (int) validar.ingresarValorNumerico(0, 1, "Ingrese 1 si tiene cámara, 0 si no: ");
         boolean camParqueo = camP == 1;
         return new Automovil(tipo, numPuertas, camParqueo, (String) datos.get(0), (String) datos.get(1), (Date) datos.get(2),
                 (String) datos.get(3), (String) datos.get(4), (String) datos.get(5), (double) datos.get(6), (double) datos.get(7), (Date) datos.get(8), (Date) datos.get(9));
@@ -103,7 +103,7 @@ public class VehiculoBuilder {
      */
     public static Camion imprimirMenuIngresoCamion(ArrayList<Object> datos) {
         Scanner scanner = new Scanner(System.in);
-        int numruedas = (int) validar.ingresarValorNumerico(0, "Ingrese el numero de ruedas");
+        int numruedas = (int) validar.ingresarValorNumerico(0, "Ingrese el numero de ruedas: ");
         double capCarga = validar.ingresarValorNumerico(0, "Ingrese la capacidad de carga: ");
         int rastreo;
         rastreo = (int) validar.ingresarValorNumerico(0, 1,
@@ -144,11 +144,11 @@ public class VehiculoBuilder {
      */
     public static Moto imprimirMenuIngresoMotos(ArrayList<Object> datos) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Ingrese el tipo de moto");
+        System.out.print("Ingrese el tipo de moto: ");
         String tipo = sc.nextLine();
-        System.out.println("Ingrese el sistema de arranque de la moto");
+        System.out.print("Ingrese el sistema de arranque de la moto: ");
         String sisArr = sc.nextLine();
-        System.out.println("Ingrese el tipo de transmisión de la moto");
+        System.out.print("Ingrese el tipo de transmisión de la moto: ");
         String transmision = sc.nextLine();
         return new Moto(tipo, sisArr, transmision, (String) datos.get(0), (String) datos.get(1), (Date) datos.get(2),
                 (String) datos.get(3), (String) datos.get(4), (String) datos.get(5), (double) datos.get(6),
@@ -166,7 +166,10 @@ public class VehiculoBuilder {
         //TERMINAR MENU Otro -FALTA LOS 2 ATRIBUTOS
         Scanner sc = new Scanner(System.in);
         int numEje = (int) validar.ingresarValorNumerico(0, "Ingrese el número de ejes: ");
-        return new Otro(numEje,(String) datos.get(0), (String) datos.get(1), (Date) datos.get(2),
+        int numAsientos = (int) validar.ingresarValorNumerico(0, "Ingrese el número de asientos: ");
+        System.out.println("Ingrese el tipo de direccion: ");
+        String  tipoDireccion= sc.nextLine();
+        return new Otro(numEje,numAsientos,tipoDireccion,(String) datos.get(0), (String) datos.get(1), (Date) datos.get(2),
                 (String) datos.get(3), (String) datos.get(4), (String) datos.get(5), (double) datos.get(6),
                 (double) datos.get(7), (Date) datos.get(8), (Date) datos.get(9));
     }

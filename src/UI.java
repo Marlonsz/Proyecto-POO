@@ -117,7 +117,6 @@ public class UI {
     /**
      * Calcula el precio final del vehículo dependiendo del tipo
      * @param vh Vehículo que se va a vender
-     * @param v Vendedor que realiza la venta
      * @return El precio final del vehículo
      */
     public static double PrecioFinal(Vehiculo vh){

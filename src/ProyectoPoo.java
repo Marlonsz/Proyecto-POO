@@ -59,7 +59,6 @@ public class ProyectoPoo {
                             p_automotor.ingresarVehículo(c);
                             break;
                         case "otros":
-                            // Terminar el menu de motos, falta 2 atributos
                             ArrayList<Object> otros = VehiculoBuilder.ingresoDatos();
                             Otro o = VehiculoBuilder.imprimirMenuIngresoOtros(otros);
                             p_automotor.ingresarVehículo(o);
