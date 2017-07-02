@@ -12,11 +12,12 @@ import java.util.Date;
  * @author Marlon
  */
 public class Camioneta extends Vehiculo {
+    //atributos de camioneta
     private String tipocabina;//Regular, SuperCab, Cabina Doble
     private String tipoTraccion;//trasera, delantera o integral
     private boolean balde;
 
-
+    //constructor de camioneta
     public Camioneta(String tipocabina, String tipoTraccion, boolean balde,String marca, String modelo, Date fechafab, String numchasis, String nummotor, String propietario, double cilindraje, double precsug, Date fing, Date fvent) {
         super(marca, modelo, fechafab, numchasis, nummotor, propietario, cilindraje, precsug, fing, fvent);
         this.tipocabina = tipocabina;

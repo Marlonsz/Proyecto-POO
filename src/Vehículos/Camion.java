@@ -12,10 +12,12 @@ import java.util.Date;
  * @author Marlon
  */
 public class Camion extends Vehiculo {
+    //atributos de camion
     private int numruedas;
     private double capCarga;//capacidad de carga
     private boolean rasSat;//rastreo satelital 
 
+    //constructor de camion
     public Camion(int numruedas, double capCarga, boolean rasSat, String marca, String modelo, Date fechafab, String numchasis, String nummotor, String propietario, double cilindraje, double precsug, Date fing, Date fvent) {
         super(marca, modelo, fechafab, numchasis, nummotor, propietario, cilindraje, precsug, fing, fvent);
         this.numruedas = numruedas;

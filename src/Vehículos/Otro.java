@@ -12,10 +12,12 @@ import java.util.Date;
  * @author Marlon
  */
 public class Otro extends Vehiculo {
+    //atributos de otro
     private int numEje;//número de ejes
     private int numAsientos;
     private String tipoDireccion;//Mecánicos -cremallera, Hidráulicos, Hidráulico-electrónicos
 
+    //onstructor de moto
     public Otro(int numEje,int numAsientos, String tipoDireccion,String marca, String modelo, Date fechafab, String numchasis,
                 String nummotor, String propietario,
                 double cilindraje, double precsug, Date fing,

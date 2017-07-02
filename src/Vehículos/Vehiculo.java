@@ -14,6 +14,7 @@ import java.util.Date;
  * @author Marlon
  */
 public class Vehiculo implements Comparable<Vehiculo> {
+    //atributos de vehiculo
     private String marca;
     private String modelo;
     private Date fechafab;
@@ -25,7 +26,7 @@ public class Vehiculo implements Comparable<Vehiculo> {
     private Date fecha_ingreso;
     private Date fecha_venta;
 
-
+    //constructor de vehiculo
     public Vehiculo(String marca, String modelo, Date fechafab, String numchasis, String nummotor, String propietario, double cilindraje, double precio_sugerido, Date fecha_ingreso, Date fecha_venta) {
         this.marca = marca;
         this.modelo = modelo;

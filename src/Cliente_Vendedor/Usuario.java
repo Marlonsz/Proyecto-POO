@@ -4,11 +4,13 @@ package Cliente_Vendedor;
  * Created by piero512 on 12/6/17.
  */
 public abstract class Usuario {
+    //atributos de usuario
     protected String nombre;
     protected String apellidos;
     protected String numid;
     protected String tel;
 
+    //constructor de usuario
     public Usuario(String nombre,String apellidos, String numid, String tel) {
         this.nombre = nombre;
         this.numid = numid;
@@ -48,6 +50,11 @@ public abstract class Usuario {
         this.tel = tel;
     }
 
+    /**
+     * Función que retorna una representación en
+     * String del Objeto: Muestra los atributos no comunes.
+     * @return String con datos del objeto.
+     */
     @Override
     public String toString() {
         return String.format("Nombre: %s %s%n", this.nombre, this.apellidos) +

@@ -13,7 +13,7 @@ import java.util.Date;
  * @author Marlon
  */
 public class Cliente extends Usuario {
-
+    //atributos de cliente
     private String pais;
     private String ciudad;
     private String calle;

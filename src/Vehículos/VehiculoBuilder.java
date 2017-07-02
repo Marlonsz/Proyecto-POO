@@ -18,9 +18,7 @@ public class VehiculoBuilder {
      * @return cadena con el tipo escogido por el usuario.
      */
     public static String ingresarTipoVehiculo(ArrayList<String> tipos) {
-        /*
 
-         */
         Scanner sc = new Scanner(System.in);
         System.out.println("Ingrese el tipo de vehículo de los siguientes tipos:");
         System.out.println("Automovil,Moto, Camionetas, Camiones u Otros");
@@ -85,12 +83,12 @@ public class VehiculoBuilder {
      */
     public static Automovil imprimirMenuIngresoAutomovil(ArrayList<Object> datos) {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Ingrese tipo de automovil: ");
-        String tipo = scanner.nextLine();
+        int descap = (int) validar.ingresarValorNumerico(0, 1, "Ingrese 1 si es descapotable, 0 si no: ");
+        boolean descapotable = descap == 1;
         int numPuertas = (int) validar.ingresarValorNumerico(0, "Ingrese numero de puertas: ");
         int camP = (int) validar.ingresarValorNumerico(0, 1, "Ingrese 1 si tiene cámara, 0 si no: ");
         boolean camParqueo = camP == 1;
-        return new Automovil(tipo, numPuertas, camParqueo, (String) datos.get(0), (String) datos.get(1), (Date) datos.get(2),
+        return new Automovil(descapotable, numPuertas, camParqueo, (String) datos.get(0), (String) datos.get(1), (Date) datos.get(2),
                 (String) datos.get(3), (String) datos.get(4), (String) datos.get(5), (double) datos.get(6), (double) datos.get(7), (Date) datos.get(8), (Date) datos.get(9));
     }
 
@@ -163,7 +161,6 @@ public class VehiculoBuilder {
      * @return un objeto Otro correctamente inicializado.
      */
     public static Otro imprimirMenuIngresoOtros(ArrayList<Object> datos) {
-        //TERMINAR MENU Otro -FALTA LOS 2 ATRIBUTOS
         Scanner sc = new Scanner(System.in);
         int numEje = (int) validar.ingresarValorNumerico(0, "Ingrese el número de ejes: ");
         int numAsientos = (int) validar.ingresarValorNumerico(0, "Ingrese el número de asientos: ");

@@ -106,7 +106,7 @@ public class ProyectoPoo {
                     // En el imposible caso de que salga un número diferente (que ya validamos) sabremos porqué.
                     throw new IllegalArgumentException();
             }
-            System.out.println("-----------------------------------------------------------------------");
+            System.out.println("----------------------------------------------------");
         }
     }
 }

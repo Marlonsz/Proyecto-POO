@@ -13,10 +13,11 @@ import java.util.ArrayList;
  *
  * @author Marlon
  */
+/**
+ * Clase para agrupar datos del vendedor
+ */
 public class Vendedor extends Usuario {
-    /**
-     * Clase para agrupar datos del vendedor
-     */
+    //atributos de vendedor
     private String tipo;
     private int totventas;
     private double totcomision;
@@ -33,6 +34,8 @@ public class Vendedor extends Usuario {
      * @param totventas total de ventas del vendedor
      * @param totcomision total de comisiones del vendedor.
      */
+
+    //DONDE SE LO USA?
     public Vendedor(String nombre, String apellidos, String numid, String tel, String tipo, int totventas, double totcomision) {
         super(nombre,apellidos, numid, tel);
         this.tipo = tipo;

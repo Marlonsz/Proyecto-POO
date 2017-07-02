@@ -12,23 +12,26 @@ import java.util.Date;
  * @author Marlon
  */
 public class Automovil extends Vehiculo {
-    private String tipo;//Deportivo, clasico,etc
+    //atributos de automovil
+    private boolean descapotable;
     private int numPuertas;
     private boolean camParqueo;//cámara de visión trasera para parqueo
-    public Automovil(String tipo, int numPuertas, boolean camParqueo, String marca, String modelo, Date fechafab, String numchasis, String nummotor, String propietario, double cilindraje, double precsug, Date fing, Date fvent) {
+
+    //constructor de automovil
+    public Automovil(boolean descapotable, int numPuertas, boolean camParqueo, String marca, String modelo, Date fechafab, String numchasis, String nummotor, String propietario, double cilindraje, double precsug, Date fing, Date fvent) {
         super(marca, modelo, fechafab, numchasis, nummotor, propietario, cilindraje, precsug, fing, fvent);
-        this.tipo = tipo;
+        this.descapotable = descapotable;
         this.numPuertas = numPuertas;
         this.camParqueo = camParqueo;
     }
   
    
-    public String getTipo() {
-        return tipo;
+    public boolean getDescapotable() {
+        return descapotable;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setDescapotable(boolean descapotable) {
+        this.descapotable = descapotable;
     }
 
     public int getNumPuertas() {
